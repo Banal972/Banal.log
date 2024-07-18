@@ -1,6 +1,7 @@
 import Link from "next/link";
+import { allPosts } from "contentlayer/generated";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <main className="py-14">
       <div className="pb-14">
@@ -21,17 +22,15 @@ export default function Home() {
           </h4>
 
           <ul className="mt-5">
-            {Array(10)
-              .fill(0)
-              .map((_, index) => (
-                <li key={index} className="mt-20 first:mt-0">
-                  <Link href={"/"}>
-                    <div className="h-80 rounded-2xl border"></div>
-                    <p className="mt-4 text-sm text-gray-500">작성일</p>
-                    <h4 className="mt-2 text-2xl font-bold">게시글 이름</h4>
-                  </Link>
-                </li>
-              ))}
+            {allPosts.map((post) => (
+              <li key={post._id} className="mt-20 first:mt-0">
+                <Link href={`/blog/post/${post._raw.flattenedPath}`}>
+                  <div className="h-80 rounded-2xl border"></div>
+                  <p className="mt-4 text-sm text-gray-500">{post.date}</p>
+                  <h4 className="mt-2 text-2xl font-bold">{post.title}</h4>
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
