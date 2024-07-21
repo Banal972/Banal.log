@@ -1,5 +1,6 @@
-import { withContentlayer } from "next-contentlayer";
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  transpilePackages: ["next-mdx-remote"],
+};
 
-export default withContentlayer(nextConfig);
+export default nextConfig;

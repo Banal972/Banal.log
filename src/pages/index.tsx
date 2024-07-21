@@ -1,7 +1,15 @@
+import { getAllPosts } from "@/lib/post";
 import Link from "next/link";
-import { allPosts } from "contentlayer/generated";
 
-export default function HomePage() {
+export const getStaticProps = () => {
+  return {
+    props: {
+      posts: getAllPosts(),
+    },
+  };
+};
+
+export default function Home({ posts }: { posts: { slug: string }[] }) {
   return (
     <main className="py-14">
       <div className="pb-14">
@@ -22,15 +30,18 @@ export default function HomePage() {
           </h4>
 
           <ul className="mt-5">
-            {allPosts.map((post) => (
-              <li key={post._id} className="mt-20 first:mt-0">
-                <Link href={`/blog/post/${post._raw.flattenedPath}`}>
-                  <div className="h-80 rounded-2xl border"></div>
-                  <p className="mt-4 text-sm text-gray-500">{post.date}</p>
-                  <h4 className="mt-2 text-2xl font-bold">{post.title}</h4>
-                </Link>
-              </li>
-            ))}
+            {posts.map((post, index) => {
+              console.log(post);
+              return (
+                <li key={index} className="mt-20 first:mt-0">
+                  <Link href={`/blog/post/1`}>
+                    <div className="h-80 rounded-2xl border"></div>
+                    {/* <p className="mt-4 text-sm text-gray-500">{post.date}</p>
+                        <h4 className="mt-2 text-2xl font-bold">{post.title}</h4> */}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
