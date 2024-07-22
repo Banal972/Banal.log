@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 const BlogPost = async () => {
   return (
     <ul className="mt-5">

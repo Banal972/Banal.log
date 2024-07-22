@@ -1,5 +1,6 @@
-import { getAllPosts, Post } from "@/lib/post";
 import Link from "next/link";
+
+import { Post, getAllPosts } from "@/lib/post";
 
 export const getStaticProps = () => {
   return {
@@ -25,30 +26,23 @@ export default function Home({ posts }: { posts: Post[] }) {
 
       <div className="relative flex items-start gap-[50px]">
         <div className="flex-1">
-          <h4 className="text-sm tracking-tight text-gray-500">
-            방금 올라온 시리즈
-          </h4>
+          <h4 className="text-sm tracking-tight text-gray-500">방금 올라온 시리즈</h4>
 
           <ul className="mt-5">
-            {posts.map((post, index) => {
-              console.log(post);
-              return (
-                <li key={index} className="mt-20 first:mt-0">
-                  <Link href={`/blog/post/1`}>
-                    <div className="h-80 rounded-2xl border"></div>
-                    <p className="mt-4 text-sm text-gray-500">{post.date}</p>
-                    <h4 className="mt-2 text-2xl font-bold">{post.title}</h4>
-                  </Link>
-                </li>
-              );
-            })}
+            {posts.map((post, index) => (
+              <li key={index} className="mt-20 first:mt-0">
+                <Link href={`/blog/post/1`}>
+                  <div className="h-80 rounded-2xl border"></div>
+                  <p className="mt-4 text-sm text-gray-500">{post.date}</p>
+                  <h4 className="mt-2 text-2xl font-bold">{post.title}</h4>
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
         <div className="sticky top-5 w-1/5 max-w-[290px]">
-          <h4 className="text-sm tracking-tight text-gray-500">
-            방금 올라온 시리즈
-          </h4>
+          <h4 className="text-sm tracking-tight text-gray-500">방금 올라온 시리즈</h4>
           <div className="mt-5">
             {Array(4)
               .fill(0)

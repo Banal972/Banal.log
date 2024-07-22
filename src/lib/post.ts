@@ -1,9 +1,9 @@
-import { sync } from "glob";
-import path from "path";
-import fs from "fs";
-import matter from "gray-matter";
-import readingTime from "reading-time";
 import dayjs from "dayjs";
+import fs from "fs";
+import { sync } from "glob";
+import matter from "gray-matter";
+import path from "path";
+import readingTime from "reading-time";
 
 interface PostMatter {
   title: string;

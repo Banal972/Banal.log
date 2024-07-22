@@ -1,8 +1,10 @@
 import type { AppProps } from "next/app";
+
 import "@/font/pretendard/pretendard-subset.css";
-import "./globals.css";
-import "dayjs/locale/ko";
 import dayjs from "dayjs";
+import "dayjs/locale/ko";
+
+import "./globals.css";
 
 dayjs.locale("ko");
 
