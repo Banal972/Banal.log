@@ -1,4 +1,4 @@
-import { getAllPosts } from "@/lib/post";
+import { getAllPosts, Post } from "@/lib/post";
 import Link from "next/link";
 
 export const getStaticProps = () => {
@@ -9,7 +9,7 @@ export const getStaticProps = () => {
   };
 };
 
-export default function Home({ posts }: { posts: { slug: string }[] }) {
+export default function Home({ posts }: { posts: Post[] }) {
   return (
     <main className="py-14">
       <div className="pb-14">
@@ -36,8 +36,8 @@ export default function Home({ posts }: { posts: { slug: string }[] }) {
                 <li key={index} className="mt-20 first:mt-0">
                   <Link href={`/blog/post/1`}>
                     <div className="h-80 rounded-2xl border"></div>
-                    {/* <p className="mt-4 text-sm text-gray-500">{post.date}</p>
-                        <h4 className="mt-2 text-2xl font-bold">{post.title}</h4> */}
+                    <p className="mt-4 text-sm text-gray-500">{post.date}</p>
+                    <h4 className="mt-2 text-2xl font-bold">{post.title}</h4>
                   </Link>
                 </li>
               );

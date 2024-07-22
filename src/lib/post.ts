@@ -5,20 +5,20 @@ import matter from "gray-matter";
 import readingTime from "reading-time";
 import dayjs from "dayjs";
 
-type PostMatter = {
+interface PostMatter {
   title: string;
   description: string;
   tags: string[];
   draft?: boolean;
   date: string;
-};
+}
 
-type Post = PostMatter & {
+export interface Post extends PostMatter {
   slug: string;
   content: string;
   readingMinutes: number;
   wordCount: number;
-};
+}
 
 const BASE_PATH = "/posts";
 const POSTS_PATH = path.join(process.cwd(), BASE_PATH);
