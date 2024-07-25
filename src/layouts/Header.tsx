@@ -2,14 +2,15 @@ import Link from "next/link"
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-10 flex h-[50px] items-center border-b bg-white">
-      <div className="mx-auto flex w-full max-w-[1500px] items-center justify-between">
-        <Link href={"/"}>로고</Link>
-        <nav className="flex gap-2">
-          <Link href={"/"}>1</Link>
-          <Link href={"/"}>2</Link>
-          <Link href={"/"}>3</Link>
-          <Link href={"/"}>4</Link>
+    <header className="sticky top-0 z-10 flex h-[50px] items-center border-b">
+      <div className="mx-auto flex w-full max-w-[1500px] items-center justify-center px-6">
+        <Link href={"/"} className="absolute left-6">
+          BANAL.LOG
+        </Link>
+        <nav className="flex gap-6 text-sm">
+          <Link href={"/blog"}>블로그</Link>
+          <Link href={"/code"}>코드모음</Link>
+          <Link href={"/etc"}>기타</Link>
         </nav>
       </div>
     </header>

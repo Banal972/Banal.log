@@ -45,7 +45,7 @@ export const parsePostAbstract = (postPath: string) => {
   const [category, slug] = filePath.split("/")
 
   // /blog/category1/title1
-  const url = `/blog/${category}/${slug}`
+  const url = `/${category}/${slug}`
 
   return { url, category, slug }
 }
@@ -74,6 +74,7 @@ export const getPostPaths = (category?: string) => {
 export const getPostList = async (category?: string): Promise<IPost[]> => {
   const paths: string[] = getPostPaths(category)
   const posts = await Promise.all(paths.map((postPath) => parsePost(postPath)))
+  posts.sort((a, b) => b.date.getTime() - a.date.getTime())
   return posts
 }
 
