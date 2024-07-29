@@ -10,7 +10,7 @@ const Header = () => {
         <nav className="flex gap-6 text-sm">
           <Link href={"/blog"}>블로그</Link>
           <Link href={"/code"}>코드모음</Link>
-          <Link href={"/etc"}>기타</Link>
+          <Link href={"/algorithm"}>알고리즘</Link>
         </nav>
       </div>
     </header>

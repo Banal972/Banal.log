@@ -7,7 +7,7 @@ import remarkBreaks from "remark-breaks"
 import remarkGfm from "remark-gfm"
 
 const page = async ({ params: { slug } }: { params: { slug: string } }) => {
-  const post = await getPostDetail("code", slug)
+  const post = await getPostDetail("algorithm", slug)
 
   return (
     <main className="mx-auto max-w-[1200px] px-4">

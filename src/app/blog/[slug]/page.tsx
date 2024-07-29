@@ -10,7 +10,7 @@ const page = async ({ params: { slug } }: { params: { slug: string } }) => {
   const post = await getPostDetail("blog", slug)
 
   return (
-    <main className="mx-auto max-w-[1200px]">
+    <main className="mx-auto max-w-[1200px] px-4">
       {post && (
         <div>
           <div className="border-b pb-10 pt-12 text-center">
