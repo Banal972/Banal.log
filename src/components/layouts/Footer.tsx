@@ -1,8 +1,14 @@
+import { IoLogoGithub } from "react-icons/io5"
+
 const Footer = () => {
   return (
-    <footer className="relative mt-[300px] overflow-hidden pb-5 pt-[300px] text-center">
-      <div className="absolute left-1/2 top-0 mx-auto w-1/2 -translate-x-1/2 rounded-full bg-blue-300 after:block after:pb-[100%]"></div>
-      <p className="relative">깃헙 · 깃헙 · 깃헙</p>
+    <footer className="relative mt-24 overflow-hidden border-t py-5 text-center">
+      <div className="text-center">
+        <a className="inline-block align-middle" href="naver.com" target="_blank">
+          <IoLogoGithub className="text-2xl" />
+        </a>
+      </div>
+      <p className="relative mt-2 text-sm">Copyright © Banal 2024</p>
     </footer>
   )
 }

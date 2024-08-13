@@ -15,7 +15,7 @@ const Document = () => {
       <body className="-tracking-wide">
         <Header />
         <Main />
-        {/* <Footer /> */}
+        <Footer />
         <NextScript />
       </body>
     </Html>

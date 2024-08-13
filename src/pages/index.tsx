@@ -1,34 +1,40 @@
-import Image from "next/image"
-import Link from "next/link"
+import { GetStaticProps } from "next"
 
-const Card = () => {
-  return (
-    <Link href="/post">
-      <div className="rounded-t-xl border">
-        <div className="relative h-52 w-full">
-          <Image src="" alt="이미지" fill className="object-cover" />
-        </div>
-        <div className="border-t p-4">
-          <p className="text-sm font-medium text-blue-500">필터1</p>
-          <h3 className="mt-2 text-xl font-bold">제목1</h3>
-          <div className="mt-1 flex justify-between text-xs text-gray-500">
-            <p>2024-00-00</p>
-            <p>4분</p>
-          </div>
-        </div>
-      </div>
-    </Link>
-  )
+import { useState } from "react"
+
+import Card from "@/components/Card"
+import Filter from "@/components/Filter"
+import { getPostList } from "@/libs/post"
+import filters from "@/types/filter"
+import { IPost } from "@/types/post.type"
+
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = await getPostList()
+
+  const serializedPosts = posts.map((post) => ({
+    ...post,
+    date: post.date.toISOString(),
+  }))
+
+  return {
+    props: {
+      posts: serializedPosts,
+    },
+  }
 }
 
-const Filter = ({ name }: { name: string }) => {
-  return <div className="cursor-pointer rounded-full border px-2 py-1 text-sm">{name}</div>
-}
+const Page = ({ posts }: { posts: IPost[] }) => {
+  const [filterActive, setFilterActive] = useState("")
+  const filterPosts = posts.filter((post) => {
+    if (filterActive !== "") {
+      return post.tags.includes(filterActive)
+    }
+    return true
+  })
 
-const Page = () => {
   return (
-    <main className="mx-auto max-w-[1400px] pt-10">
-      <div className="text-xl font-medium">
+    <main className="mx-auto max-w-[1400px] px-5 pt-10">
+      <div className="text-base font-medium lg:text-xl">
         <p>안녕하세요!🖐️</p>
         <p className="mt-1">
           제 블로그인 <span className="font-bold">Banal.log</span>에 오신걸 환영합니다.
@@ -37,21 +43,27 @@ const Page = () => {
       </div>
 
       <div className="mt-12 flex gap-2">
-        <Filter name="필터1" />
-        <Filter name="필터2" />
-        <Filter name="필터3" />
-        <Filter name="필터4" />
-        <Filter name="필터5" />
+        <Filter onClick={() => setFilterActive("")} name={"전체"} active={filterActive === ""} />
+        {filters.map((filter) => (
+          <Filter
+            key={filter}
+            onClick={() => setFilterActive(filter)}
+            name={filter}
+            active={filterActive === filter}
+          />
+        ))}
       </div>
-      <div className="mt-10 grid grid-cols-4 gap-5 gap-y-10">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+
+      <div className="mt-10">
+        {filterPosts.length > 0 ? (
+          <div className="grid grid-cols-1 gap-5 gap-y-10 md:grid-cols-2 lg:grid-cols-4">
+            {filterPosts.map((post) => (
+              <Card key={post.slug} {...post} />
+            ))}
+          </div>
+        ) : (
+          <p className="text-center">게시글이 존재하지 않습니다.</p>
+        )}
       </div>
     </main>
   )
