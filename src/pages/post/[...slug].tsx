@@ -67,7 +67,7 @@ const PostPage = ({ post, source }: { post: IPost; source: any }) => {
         </div>
       </div>
 
-      <div className="prose w-full p-5">
+      <div className="prose max-w-none p-5">
         <MDXRemote {...source} />
       </div>
     </main>

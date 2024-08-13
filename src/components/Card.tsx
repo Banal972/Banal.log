@@ -29,7 +29,9 @@ const Card = ({ url, title, thumbnail, date, readingMinutes, tags }: CardProps) 
               </p>
             ))}
           </div>
-          <h3 className="mt-2 text-xl font-bold">{title}</h3>
+          <h3 className="mt-2 line-clamp-2 h-14 text-ellipsis break-keep text-xl font-bold leading-6">
+            {title}
+          </h3>
           <div className="mt-1 flex justify-between text-xs text-gray-500">
             <p className="flex items-center gap-1">
               <IoCalendarClearOutline /> {dayjs(date).format("YYYY-MM-DD")}

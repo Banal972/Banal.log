@@ -5,14 +5,14 @@ import Header from "@/components/layouts/Header"
 
 const Document = () => {
   return (
-    <Html lang="ko">
+    <Html lang="ko" className="h-full">
       <Head>
         <meta property="og:url" content="" />
         <meta property="og:title" content="내 블로그" />
         <meta property="og:description" content="내 블로그임" />
         <meta property="og:image" content="" />
       </Head>
-      <body className="-tracking-wide">
+      <body className="h-full -tracking-wide">
         <Header />
         <Main />
         <Footer />
