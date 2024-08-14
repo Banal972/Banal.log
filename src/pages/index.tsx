@@ -1,6 +1,6 @@
 import { GetStaticProps } from "next"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 import Card from "@/components/Card"
 import Filter from "@/components/Filter"
@@ -25,12 +25,18 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const Page = ({ posts }: { posts: IPost[] }) => {
   const [filterActive, setFilterActive] = useState("")
-  const filterPosts = posts.filter((post) => {
-    if (filterActive !== "") {
-      return post.tags.includes(filterActive)
-    }
-    return true
-  })
+  const [filterPosts, setFilterPosts] = useState(posts)
+
+  useEffect(() => {
+    setFilterPosts(
+      posts.filter((post) => {
+        if (filterActive !== "") {
+          return post.tags.includes(filterActive)
+        }
+        return post
+      }),
+    )
+  }, [filterActive, posts])
 
   return (
     <main className="mx-auto max-w-[1400px] px-5 pt-10">

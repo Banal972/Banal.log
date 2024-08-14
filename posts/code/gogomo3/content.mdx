@@ -1,0 +1,59 @@
+---
+title: 'Next.js에서의 toast-ui-editor SSR 오류'
+desc: ''
+thumbnail: ''
+tags:
+  - 코드
+date: 2024-06-15 02:51:00
+---
+
+### 개요
+
+next.js에서 toast-ui-editor을 사용할 때 SSR 오류가 발생하는 오류가 있습니다.
+
+toast-ui-editor는 ssr을 지원하지 않기 때문입니다. 굳이 지원할 필요도 없기도 해요
+
+### 해결방안
+
+next.js에서 지원해주고 있는 dynamic import을 통해서 ssr 설정을 꺼준 채 불러와 주면 됩니다.
+
+```
+const NoSsrEditor = dynamic(()=>import("@components/post/NoSsrEditor"),{ssr : false});
+```
+
+Editor의 ssr을 꺼주기 위해서 Editor을 감싸줄 컴포넌트를 생성하고 NoSsrEditor라는 이름으로  dynamic을 이용해서 ssr 을 false로 해서 import 해주었습니다.
+
+NoSsrEditor의 실제코드는 이렇습니다.
+
+```
+import { Editor } from "@toast-ui/react-editor";
+import { useEffect, useRef } from "react";
+import * as S from "@app/(auth)/post/style";
+
+export default function NoSsrEditor() {
+
+    return (
+        <S.DescInputStyle>
+            <label htmlFor="content">내용</label>
+            <S.Editor>
+            <Editor
+                toolbarItems={[
+                ['heading', 'bold', 'italic', 'strike'],
+                ['hr', 'quote'],
+                ['ul', 'ol', 'task', 'indent', 'outdent'],
+                ['table', 'link'],
+                ]}
+                initialEditType="wysiwyg"
+                hideModeSwitch={true}
+                placeholder="내용을 입력해 주세요."
+                initialValue={!content ? " " : content}
+                ref={editorRef}
+                onChange={onChange}
+            />
+            </S.Editor>
+        </S.DescInputStyle>
+    )
+}
+```
+
+이렇게 dynamic을 이용해서 ssr을 false로 해주고 불러오게 되면 오류가 발생하지 않습니다.

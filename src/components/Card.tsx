@@ -19,7 +19,13 @@ const Card = ({ url, title, thumbnail, date, readingMinutes, tags }: CardProps) 
     <Link href={url}>
       <div className="overflow-hidden rounded-t-xl border">
         <div className="relative h-44 w-full md:h-52">
-          <Image src={thumbnail} alt="이미지" fill className="object-cover" />
+          {thumbnail ? (
+            <Image src={thumbnail} alt="이미지" fill className="object-cover" />
+          ) : (
+            <p className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-sm font-medium">
+              {tags[0]}
+            </p>
+          )}
         </div>
         <div className="border-t p-4">
           <div className="flex gap-2">
