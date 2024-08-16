@@ -25,17 +25,13 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const Page = ({ posts }: { posts: IPost[] }) => {
   const [filterActive, setFilterActive] = useState("")
-  const [filterPosts, setFilterPosts] = useState(posts)
+  const [filteredPosts, setFilteredPosts] = useState(posts)
 
   useEffect(() => {
-    setFilterPosts(
-      posts.filter((post) => {
-        if (filterActive !== "") {
-          return post.tags.includes(filterActive)
-        }
-        return post
-      }),
-    )
+    if (filterActive === "") {
+      return setFilteredPosts(posts)
+    }
+    setFilteredPosts(posts.filter((post) => post.tags.includes(filterActive)))
   }, [filterActive, posts])
 
   return (
@@ -61,10 +57,10 @@ const Page = ({ posts }: { posts: IPost[] }) => {
       </div>
 
       <div className="mt-10">
-        {filterPosts.length > 0 ? (
+        {filteredPosts.length > 0 ? (
           <div className="grid grid-cols-1 gap-5 gap-y-10 md:grid-cols-2 lg:grid-cols-4">
-            {filterPosts.map((post) => (
-              <Card key={post.slug} {...post} />
+            {filteredPosts.map((post) => (
+              <Card key={post.category + post.slug} {...post} />
             ))}
           </div>
         ) : (

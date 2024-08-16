@@ -12,7 +12,7 @@ const Document = () => {
         <meta property="og:description" content="내 블로그임" />
         <meta property="og:image" content="" />
       </Head>
-      <body className="h-full -tracking-wide">
+      <body className="min-h-full -tracking-wide">
         <Header />
         <Main />
         <Footer />
