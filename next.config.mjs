@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* output: "export",
-  basePath: "/Banal.log",
-  assetPrefix: "/Banal.log/",
-  transpilePackages: ["next-mdx-remote"], */
+  output: "export",
+  images: {
+    unoptimized: true,
+  },
 }
 
 export default nextConfig

@@ -2,10 +2,11 @@
   "name": "banallog",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Banal972.github.io/Banal.log/",
+  "homepage": "https://Banal972.github.io/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "serve": "npx http-server out",
     "start": "next start",
     "lint": "next lint"
   },
