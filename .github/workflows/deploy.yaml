@@ -31,7 +31,7 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          repository-name: YourGitHubUsername/YourGitHubUsername.github.io
+          repository-name: Banal972/Banal972.github.io
           branch: gh-pages
           folder: out
           token: ${{ secrets.DEPLOY_TOKEN }}
