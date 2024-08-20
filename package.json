@@ -2,7 +2,7 @@
   "name": "banallog",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Banal972.github.io/",
+  "homepage": "https://Banal972.github.io",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
