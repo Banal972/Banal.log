@@ -1,29 +1,19 @@
-import { GetStaticProps } from "next"
-
 import { useEffect, useState } from "react"
 
 import Card from "@/components/Card"
 import Filter from "@/components/Filter"
-import { getPostList } from "@/libs/post"
-import filters from "@/types/filter"
-import { IPost } from "@/types/post.type"
+import filters from "@/constant/filter"
+import { getAllPosts } from "@/libs/posts"
 
-export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getPostList()
-
-  const serializedPosts = posts.map((post) => ({
-    ...post,
-    date: post.date.toISOString(),
-  }))
-
+export const getStaticProps = async () => {
   return {
     props: {
-      posts: serializedPosts,
+      posts: getAllPosts(),
     },
   }
 }
 
-const Page = ({ posts }: { posts: IPost[] }) => {
+export default function Test({ posts }: { posts: Post[] }) {
   const [filterActive, setFilterActive] = useState("")
   const [filteredPosts, setFilteredPosts] = useState(posts)
 
@@ -60,7 +50,7 @@ const Page = ({ posts }: { posts: IPost[] }) => {
         {filteredPosts.length > 0 ? (
           <div className="grid grid-cols-1 gap-5 gap-y-10 md:grid-cols-2 lg:grid-cols-4">
             {filteredPosts.map((post) => (
-              <Card key={post.category + post.slug} {...post} />
+              <Card key={post.slug} {...post} />
             ))}
           </div>
         ) : (
@@ -70,5 +60,3 @@ const Page = ({ posts }: { posts: IPost[] }) => {
     </main>
   )
 }
-
-export default Page

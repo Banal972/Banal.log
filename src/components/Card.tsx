@@ -5,18 +5,9 @@ import { IoCalendarClearOutline, IoTimeOutline } from "react-icons/io5"
 
 import dayjs from "dayjs"
 
-interface CardProps {
-  url: string
-  title: string
-  date: Date
-  tags: string[]
-  thumbnail: string
-  readingMinutes: number
-}
-
-const Card = ({ url, title, thumbnail, date, readingMinutes, tags }: CardProps) => {
+const Card = ({ slug, title, thumbnail, date, readingMinutes, tags }: Post) => {
   return (
-    <Link href={url}>
+    <Link href={slug}>
       <div className="overflow-hidden rounded-t-xl border">
         <div className="relative h-44 w-full md:h-52">
           {thumbnail ? (
