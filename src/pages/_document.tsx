@@ -12,10 +12,24 @@ const Document = () => {
         <meta property="og:description" content="내 블로그임" />
         <meta property="og:image" content="" />
       </Head>
-      <body className="min-h-full -tracking-wide">
+      <body className="relative min-h-full -tracking-wide">
         <Header />
-        <Main />
-        <Footer />
+        <div className="flex pt-[50px]">
+          <div className="w-[200px] flex-none border-r bg-white">
+            <div className="sticky top-[50px] p-5">
+              <ul>
+                <li>카테고리1</li>
+                <li>카테고리1</li>
+                <li>카테고리1</li>
+                <li>카테고리1</li>
+              </ul>
+            </div>
+          </div>
+          <div className="flex-1">
+            <Main />
+            <Footer />
+          </div>
+        </div>
         <NextScript />
       </body>
     </Html>
