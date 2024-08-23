@@ -3,6 +3,7 @@ type PostMatter = {
   desc: string
   thumbnail: string
   tags: string[]
+  categorys: string[]
   date: string
 }
 

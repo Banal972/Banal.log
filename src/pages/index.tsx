@@ -1,62 +1,47 @@
-import { useEffect, useState } from "react"
+import Link from "next/link"
 
-import Card from "@/components/Card"
-import Filter from "@/components/Filter"
-import filters from "@/constant/filter"
-import { getAllPosts } from "@/libs/posts"
+import { FaGithub } from "react-icons/fa"
 
-export const getStaticProps = async () => {
-  return {
-    props: {
-      posts: getAllPosts(),
-    },
-  }
-}
-
-export default function Test({ posts }: { posts: Post[] }) {
-  const [filterActive, setFilterActive] = useState("")
-  const [filteredPosts, setFilteredPosts] = useState(posts)
-
-  useEffect(() => {
-    if (filterActive === "") {
-      return setFilteredPosts(posts)
-    }
-    setFilteredPosts(posts.filter((post) => post.tags.includes(filterActive)))
-  }, [filterActive, posts])
-
+const IndexPage = () => {
   return (
-    <main className="mx-auto max-w-[1400px] px-5 pt-10">
-      <div className="text-base font-medium lg:text-xl">
-        <p>안녕하세요!🖐️</p>
-        <p className="mt-1">
-          제 블로그인 <span className="font-bold">Banal.log</span>에 오신걸 환영합니다.
-        </p>
-        <p className="mt-1">블로그는 곧 다시 리뉴얼 할 예정입니다</p>
+    <main>
+      <div className="flex items-center justify-between">
+        <h1 className="text-lg font-semibold">Banal.log</h1>
+        <a href="https://github.com/Banal972" target="_blank">
+          <FaGithub />
+        </a>
       </div>
+      <p className="mt-5">
+        사용자가 불편함이 없이 상호작용 하고, 복잡한것을 단순화 하는것을 좋아하며
+        <br />
+        다양한 직군과 소통, 피드백을 받는 것에 재미를 느끼고 틈틈이 기록합니다.
+      </p>
 
-      <div className="mt-12 flex gap-2">
-        <Filter onClick={() => setFilterActive("")} name={"전체"} active={filterActive === ""} />
-        {filters.map((filter) => (
-          <Filter
-            key={filter}
-            onClick={() => setFilterActive(filter)}
-            name={filter}
-            active={filterActive === filter}
-          />
-        ))}
-      </div>
-
-      <div className="mt-10">
-        {filteredPosts.length > 0 ? (
-          <div className="grid grid-cols-1 gap-5 gap-y-10 md:grid-cols-2 lg:grid-cols-4">
-            {filteredPosts.map((post) => (
-              <Card key={post.slug} {...post} />
-            ))}
-          </div>
-        ) : (
-          <p className="text-center">게시글이 존재하지 않습니다.</p>
-        )}
+      <div className="mt-10 flex gap-5">
+        <p className="font-bold">카테고리</p>
+        <ul>
+          <li className="flex">
+            <Link href="/blog" className="flex items-center gap-3">
+              <span className="font-medium">블로그</span>
+              <p className="text-sm">지나온 일들을 회고한곳</p>
+            </Link>
+          </li>
+          <li className="mt-1">
+            <Link href="/discover" className="flex items-center gap-3">
+              <span className="font-medium">지식창고</span>
+              <p className="text-sm">새로운 지식을 얻고 정리한곳</p>
+            </Link>
+          </li>
+          <li className="mt-1">
+            <Link href="/question" className="flex items-center gap-3">
+              <span className="font-medium">코딩 테스트</span>
+              <p className="text-sm">코딩 테스트 풀이과정을 정리한곳</p>
+            </Link>
+          </li>
+        </ul>
       </div>
     </main>
   )
 }
+
+export default IndexPage

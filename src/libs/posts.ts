@@ -26,7 +26,10 @@ export const parsePost = (postPath: string) => {
       ...grayMatter,
       date: dayjs(grayMatter.date).format("YYYY-MM-DD"),
       content,
-      slug: postPath.slice(postPath.indexOf(BASE_PATH)).replace(".mdx", ""),
+      slug: postPath
+        .replace(BASE_PATH, "/post")
+        .slice(postPath.indexOf(BASE_PATH))
+        .replace("content.mdx", ""),
       readingMinutes: Math.ceil(readingTime(content).minutes),
       wordCount: content.split(/\s+/gu).length, // 총 글자수
     }
@@ -45,5 +48,3 @@ export const getAllPosts = () => {
     return [...ac, post]
   }, [])
 }
-
-// 게시글 내용 가져오기
