@@ -26,6 +26,7 @@ function extractTableOfContents(content: any) {
 export const getStaticPaths = () => {
   // 정적파일 만들때 필요
   const posts = getAllPosts().map((post) => post.slug)
+
   // 주소만 추출
   return {
     paths: posts,

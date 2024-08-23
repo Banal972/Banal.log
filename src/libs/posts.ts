@@ -45,5 +45,3 @@ export const getAllPosts = () => {
     return [...ac, post]
   }, [])
 }
-
-// 게시글 내용 가져오기
