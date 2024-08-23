@@ -20,24 +20,24 @@ const IndexPage = () => {
       <div className="mt-5">SNS를 한다면 들어가는 공간</div>
 
       <div className="mt-10 flex gap-5">
-        <p>카테고리</p>
+        <p className="font-bold">카테고리</p>
         <ul>
           <li className="flex">
-            <Link href="" className="flex items-center gap-3">
-              블로그
-              <p className="text-sm">인사이트를 보관하는 공간</p>
+            <Link href="/blog" className="flex items-center gap-3">
+              <span className="font-medium">블로그</span>
+              <p className="text-sm">지나온 일들을 회고한곳</p>
             </Link>
           </li>
           <li className="mt-1">
-            <Link href="" className="flex items-center gap-3">
-              지식
-              <p className="text-sm">유용한 지식을 기록하는 공간</p>
+            <Link href="/discover" className="flex items-center gap-3">
+              <span className="font-medium">지식창고</span>
+              <p className="text-sm">새로운 지식을 얻고 정리한곳</p>
             </Link>
           </li>
           <li className="mt-1">
-            <Link href="" className="flex items-center gap-3">
-              지식
-              <p className="text-sm">무언가 흥미로운 것을 만드는 공간</p>
+            <Link href="/question" className="flex items-center gap-3">
+              <span className="font-medium">코딩 테스트</span>
+              <p className="text-sm">코딩 테스트 풀이과정을 정리한곳</p>
             </Link>
           </li>
         </ul>

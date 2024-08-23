@@ -25,11 +25,11 @@ function extractTableOfContents(content: any) {
 
 export const getStaticPaths = () => {
   // 정적파일 만들때 필요
-  const posts = getAllPosts().map((post) => post.slug)
+  const post = getAllPosts().map((post) => `/post${post.slug}`)
 
   // 주소만 추출
   return {
-    paths: posts,
+    paths: post,
     fallback: false,
   }
 }
@@ -37,10 +37,12 @@ export const getStaticPaths = () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slugs } = params as { slugs: string[] }
 
+  console.log(slugs)
+
   const slug = [...slugs].join("/") // 다이나믹 라우터 조합
 
   const post = getAllPosts().find((v) => {
-    return v.slug === `/posts/${slug}`
+    return v.slug === `/${slug}/`
   })
 
   if (!post) {
@@ -113,32 +115,30 @@ const PostPage = ({ post, mdx, toc }: { post: Post; mdx: MDXRemoteSerializeResul
   return (
     <main className="relative px-5">
       <TOC toc={toc} />
-      <div className="mr-auto w-[calc(100%-200px)]">
-        <div className="border-b px-5 py-10 text-center">
-          <h1 className="text-3xl font-bold">{post.title}</h1>
+      <div className="border-b px-5 py-10 text-center">
+        <h1 className="text-3xl font-bold">{post.title}</h1>
 
-          <div className="mt-5 flex justify-center gap-2 rounded px-4 py-1 text-sm font-medium uppercase text-blue-500">
-            {post.tags.map((tag) => (
-              <p className="border-l border-blue-500 pl-2 first:border-none first:pl-0" key={tag}>
-                {tag}
-              </p>
-            ))}
-          </div>
+        <div className="mt-5 flex justify-center gap-2 rounded px-4 py-1 text-sm font-medium uppercase text-blue-500">
+          {post.tags.map((tag) => (
+            <p className="border-l border-blue-500 pl-2 first:border-none first:pl-0" key={tag}>
+              {tag}
+            </p>
+          ))}
+        </div>
 
-          <div className="mt-5 flex justify-center gap-2 text-sm text-gray-500">
-            <p className="flex items-center gap-1">
-              <IoCalendarClearOutline />
-              {post.date}
-            </p>
-            <p className="flex items-center gap-1">
-              <IoTimeOutline />
-              {post.readingMinutes}분
-            </p>
-          </div>
+        <div className="mt-5 flex justify-center gap-2 text-sm text-gray-500">
+          <p className="flex items-center gap-1">
+            <IoCalendarClearOutline />
+            {post.date}
+          </p>
+          <p className="flex items-center gap-1">
+            <IoTimeOutline />
+            {post.readingMinutes}분
+          </p>
         </div>
-        <div className="prose max-w-none p-5">
-          <MDXRemote {...mdx} />
-        </div>
+      </div>
+      <div className="prose max-w-none p-5">
+        <MDXRemote {...mdx} />
       </div>
     </main>
   )

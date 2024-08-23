@@ -26,7 +26,10 @@ export const parsePost = (postPath: string) => {
       ...grayMatter,
       date: dayjs(grayMatter.date).format("YYYY-MM-DD"),
       content,
-      slug: postPath.slice(postPath.indexOf(BASE_PATH)).replace(".mdx", ""),
+      slug: postPath
+        .replace(BASE_PATH, "")
+        .slice(postPath.indexOf(BASE_PATH))
+        .replace("content.mdx", ""),
       readingMinutes: Math.ceil(readingTime(content).minutes),
       wordCount: content.split(/\s+/gu).length, // 총 글자수
     }
