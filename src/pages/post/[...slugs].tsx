@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next"
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote"
 import { serialize } from "next-mdx-remote/serialize"
-import { notFound } from "next/navigation"
+import { notFound, useRouter } from "next/navigation"
 
 import { useEffect, useState } from "react"
 import { IoCalendarClearOutline, IoTimeOutline } from "react-icons/io5"
@@ -110,6 +110,8 @@ const TOC = ({ toc }: { toc: any }) => {
 }
 
 const PostPage = ({ post, mdx, toc }: { post: Post; mdx: MDXRemoteSerializeResult; toc: any }) => {
+  const router = useRouter()
+
   return (
     <main className="relative px-5">
       <TOC toc={toc} />
@@ -133,6 +135,15 @@ const PostPage = ({ post, mdx, toc }: { post: Post; mdx: MDXRemoteSerializeResul
             <IoTimeOutline />
             {post.readingMinutes}분
           </p>
+        </div>
+
+        <div className="mt-3">
+          <button
+            className="rounded-lg bg-[#d7d780] px-2 py-[2px] text-sm font-bold text-black"
+            onClick={() => router.back()}
+          >
+            이전으로
+          </button>
         </div>
       </div>
       <div className="prose max-w-none p-5">

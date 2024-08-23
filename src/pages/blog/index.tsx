@@ -20,6 +20,12 @@ export const getStaticProps = async () => {
     return ac
   }, {})
 
+  // 각 연도 내에서 날짜 기준으로 역순 정렬
+  Object.keys(posts).forEach((year) => {
+    posts[Number(year)].sort((a, b) => dayjs(b.date).valueOf() - dayjs(a.date).valueOf())
+  })
+
+  // 연도별로 역순 정렬
   const desc = Object.entries(posts).sort((a, b) => Number(b[0]) - Number(a[0]))
 
   return {

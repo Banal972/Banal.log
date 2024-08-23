@@ -12,7 +12,7 @@ const Document = () => {
         />
         <meta property="og:image" content="" />
       </Head>
-      <body className="mx-auto max-w-2xl bg-[#fafaea] px-5 pt-14">
+      <body className="mx-auto max-w-2xl bg-[#fafaea] px-5 py-14">
         <Main />
         <NextScript />
       </body>
