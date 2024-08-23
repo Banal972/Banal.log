@@ -27,7 +27,7 @@ export const parsePost = (postPath: string) => {
       date: dayjs(grayMatter.date).format("YYYY-MM-DD"),
       content,
       slug: postPath
-        .replace(BASE_PATH, "")
+        .replace(BASE_PATH, "/post")
         .slice(postPath.indexOf(BASE_PATH))
         .replace("content.mdx", ""),
       readingMinutes: Math.ceil(readingTime(content).minutes),

@@ -25,7 +25,7 @@ function extractTableOfContents(content: any) {
 
 export const getStaticPaths = () => {
   // 정적파일 만들때 필요
-  const post = getAllPosts().map((post) => `/post${post.slug}`)
+  const post = getAllPosts().map((post) => `${post.slug}`)
 
   // 주소만 추출
   return {
@@ -37,12 +37,10 @@ export const getStaticPaths = () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slugs } = params as { slugs: string[] }
 
-  console.log(slugs)
-
   const slug = [...slugs].join("/") // 다이나믹 라우터 조합
 
   const post = getAllPosts().find((v) => {
-    return v.slug === `/${slug}/`
+    return v.slug === `/post/${slug}/`
   })
 
   if (!post) {
