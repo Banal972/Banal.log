@@ -92,7 +92,7 @@ const TOC = ({ toc }: { toc: any }) => {
   }, [toc])
 
   return (
-    <div className="fixed right-[25px] top-[140px] flex w-[150px] flex-col gap-3 text-sm">
+    <div className="fixed right-3 top-[140px] hidden w-[150px] flex-col gap-3 text-sm lg:flex">
       <ul>
         {toc.map((item: any, index: number) => (
           <li key={index} className="mt-3 first:mt-0">
@@ -113,10 +113,10 @@ const PostPage = ({ post, mdx, toc }: { post: Post; mdx: MDXRemoteSerializeResul
   const router = useRouter()
 
   return (
-    <main className="relative px-5">
+    <main className="relative">
       <TOC toc={toc} />
       <div className="border-b px-5 py-10 text-center">
-        <h1 className="text-3xl font-bold">{post.title}</h1>
+        <h1 className="text-2xl font-bold">{post.title}</h1>
 
         <div className="mt-5 flex justify-center gap-2 rounded px-4 py-1 text-sm font-medium uppercase text-blue-500">
           {post.tags.map((tag) => (

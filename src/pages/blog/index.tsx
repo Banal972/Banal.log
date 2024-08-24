@@ -51,7 +51,10 @@ const BlogPage = ({ posts }: { posts: [string, Post[]][] }) => {
           <p>{post[0]}</p>
           <ul className="flex-1">
             {post[1].map((list) => (
-              <li key={list.date} className="mt-3 flex items-center justify-between first:mt-0">
+              <li
+                key={list.date}
+                className="mt-3 flex flex-wrap items-center justify-between gap-2 first:mt-0"
+              >
                 <Link href={list.slug}>{list.title}</Link>
                 <p className="flex items-center gap-1 text-sm text-gray-500">
                   <IoCalendarClearOutline />

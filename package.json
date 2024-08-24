@@ -11,6 +11,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-spring/web": "^9.7.4",
     "dayjs": "^1.11.12",
     "next": "14.2.5",
     "next-mdx-remote": "^5.0.0",
