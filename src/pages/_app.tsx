@@ -20,6 +20,10 @@ const App = ({ Component, pageProps }: AppProps) => {
     <>
       <Head>
         <title>Banal.log</title>
+        <meta
+          name="description"
+          content="심플하게 만들어 노트처럼 작성한 프론트엔드 개발자의 회고록 Banal.log"
+        />
       </Head>
       <div className={`${Cafe24Oneprettynight.className}`}>
         <ProjectModalProvider>
