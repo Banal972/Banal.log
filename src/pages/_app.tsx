@@ -20,14 +20,6 @@ const App = ({ Component, pageProps }: AppProps) => {
     <>
       <Head>
         <title>Banal.log</title>
-        <meta name="naver-site-verification" content="62539551f3bf798f4509e12bf417f4a479576b32" />
-        <meta property="og:url" content="banal972.github.io" />
-        <meta property="og:title" content="Banal.log" />
-        <meta
-          property="og:description"
-          content="심플하게 만들어 노트처럼 작성한 프론트엔드 개발자의 회고록 Banal.log"
-        />
-        <meta property="og:image" content="" />
       </Head>
       <div className={`${Cafe24Oneprettynight.className}`}>
         <ProjectModalProvider>
