@@ -12,8 +12,11 @@ const Document = () => {
         />
         <meta property="og:image" content="" />
       </Head>
-      <body className="mx-auto max-w-2xl bg-[#fafaea] px-5 pt-14">
+      <body className="mx-auto max-w-2xl bg-[#fafaea] px-5 py-14">
         <Main />
+        <footer className="mt-40 text-center text-gray-600">
+          @ 2024. <span className="font-bold text-black">Banal</span> All Rights Reserved.
+        </footer>
         <NextScript />
       </body>
     </Html>

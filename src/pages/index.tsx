@@ -1,15 +1,15 @@
 import Link from "next/link"
 
-import { FaGithub } from "react-icons/fa"
+import { IoLogoGithub } from "react-icons/io5"
 
 const IndexPage = () => {
   return (
     <main>
       <div className="flex items-center justify-between">
         <h1 className="text-lg font-semibold">Banal.log</h1>
-        <a href="https://github.com/Banal972" target="_blank">
-          <FaGithub />
-        </a>
+        <Link href="https://github.com/Banal972" target="_blank">
+          <IoLogoGithub />
+        </Link>
       </div>
       <p className="mt-5">
         사용자가 불편함이 없이 상호작용 하고, 복잡한것을 단순화 하는것을 좋아하며
@@ -18,7 +18,12 @@ const IndexPage = () => {
       </p>
 
       <div className="mt-10 flex gap-5">
-        <p className="font-bold">카테고리</p>
+        <Link href="/about" className="font-bold">
+          About
+        </Link>
+      </div>
+      <div className="mt-5 flex gap-5 border-t pt-5">
+        <p className="font-bold">Category</p>
         <ul>
           <li className="flex">
             <Link href="/blog" className="flex items-center gap-3">

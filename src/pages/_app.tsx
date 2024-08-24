@@ -2,6 +2,7 @@ import type { AppProps } from "next/app"
 import localFont from "next/font/local"
 import Head from "next/head"
 
+import ProjectModalProvider from "@/provider/ProjectModalProvider"
 import dayjs from "dayjs"
 import "dayjs/locale/ko"
 
@@ -21,7 +22,9 @@ const App = ({ Component, pageProps }: AppProps) => {
         <title>Banal.log</title>
       </Head>
       <div className={`${Cafe24Oneprettynight.className}`}>
-        <Component {...pageProps} />
+        <ProjectModalProvider>
+          <Component {...pageProps} />
+        </ProjectModalProvider>
       </div>
     </>
   )

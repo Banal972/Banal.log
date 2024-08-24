@@ -20,6 +20,12 @@ export const getStaticProps = async () => {
     return ac
   }, {})
 
+  // 각 연도 내에서 날짜 기준으로 역순 정렬
+  Object.keys(posts).forEach((year) => {
+    posts[Number(year)].sort((a, b) => dayjs(b.date).valueOf() - dayjs(a.date).valueOf())
+  })
+
+  // 연도별로 역순 정렬
   const desc = Object.entries(posts).sort((a, b) => Number(b[0]) - Number(a[0]))
 
   return {
@@ -45,7 +51,10 @@ const BlogPage = ({ posts }: { posts: [string, Post[]][] }) => {
           <p>{post[0]}</p>
           <ul className="flex-1">
             {post[1].map((list) => (
-              <li key={list.date} className="mt-3 flex items-center justify-between first:mt-0">
+              <li
+                key={list.date}
+                className="mt-3 flex flex-wrap items-center justify-between gap-2 first:mt-0"
+              >
                 <Link href={list.slug}>{list.title}</Link>
                 <p className="flex items-center gap-1 text-sm text-gray-500">
                   <IoCalendarClearOutline />
