@@ -5,7 +5,6 @@ import LinkIcon from "@/components/page/about/LinkIcon"
 import ProjectModal from "@/components/page/about/ProjectModal"
 import Skill from "@/components/page/about/Skill"
 import { Comming } from "@/components/page/about/project/Comming"
-import { Dallem } from "@/components/page/about/project/dallem"
 import { useProjectModal } from "@/provider/ProjectModalProvider"
 
 const AboutPage = () => {
