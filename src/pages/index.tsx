@@ -1,15 +1,20 @@
 import Link from "next/link"
 
-import { IoLogoGithub } from "react-icons/io5"
+import { IoLogoGithub, IoMail } from "react-icons/io5"
 
 const IndexPage = () => {
   return (
     <main>
       <div className="flex items-center justify-between">
         <h1 className="text-lg font-semibold">Banal.log</h1>
-        <Link href="https://github.com/Banal972" target="_blank">
-          <IoLogoGithub />
-        </Link>
+        <div className="flex gap-2">
+          <Link href="https://github.com/Banal972" target="_blank">
+            <IoLogoGithub />
+          </Link>
+          <Link href="mailto:spbabo97@naver.com" target="_blank">
+            <IoMail />
+          </Link>
+        </div>
       </div>
       <p className="mt-5">
         사용자가 불편함이 없이 상호작용 하고, 복잡한것을 단순화 하는것을 좋아하며

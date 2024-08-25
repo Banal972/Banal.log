@@ -29,7 +29,7 @@ const ProjectModal = () => {
         <animated.div style={style} className="fixed left-0 top-0 h-full w-full">
           <div
             onClick={closeModal}
-            className="absolute bottom-0 left-0 right-0 top-0 cursor-pointer bg-black/20"
+            className="absolute bottom-0 left-0 right-0 top-0 cursor-pointer bg-black/40"
           />
           <animated.div
             style={springs}

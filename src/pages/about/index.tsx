@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 
 import { IoLogoGithub, IoMail } from "react-icons/io5"
@@ -32,7 +33,9 @@ const AboutPage = () => {
               </LinkIcon>
             </div>
           </div>
-          <div className="size-24 rounded-lg bg-black" />
+          <div className="relative size-24 rounded-lg bg-black">
+            <Image src="/" fill className="object-cover" alt="프로필 사진" />
+          </div>
         </div>
 
         <div className="mt-10 border-t pt-5">
