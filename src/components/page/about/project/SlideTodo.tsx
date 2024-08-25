@@ -4,16 +4,11 @@ import { IoOpenOutline } from "react-icons/io5"
 
 import Skill from "@/components/page/about/Skill"
 
-export const Dallem = () => {
+const SlideTodo = () => {
   return (
     <>
       <div className="mt-2 flex items-center gap-3">
-        <Link href="https://dallaem-publish.vercel.app/" target="_blank">
-          <div className="flex items-center gap-2 rounded-md border px-3 py-1 font-bold transition-colors hover:bg-black hover:text-white">
-            <IoOpenOutline /> Homepage
-          </div>
-        </Link>
-        <Link href="https://github.com/sprint-team5/dallaem" target="_blank">
+        <Link href="https://github.com/Banal972/todoapp" target="_blank">
           <div className="flex items-center gap-2 rounded-md border px-3 py-1 font-bold transition-colors hover:bg-black hover:text-white">
             <IoOpenOutline /> Github
           </div>
@@ -23,18 +18,17 @@ export const Dallem = () => {
       <div className="mt-8">
         <h4 className="text-lg font-bold">프로젝트 설명</h4>
         <p className="mt-3">
-          유저가 바쁜 일상 속 휴식을 위한 다양한 모임을 탐색하고 참여하며, 직접 모임을 개설하고
-          리뷰를 생성할 수 있는 서비스입니다.
+          사용자가 스마트 기기로 목표, 할일과, 노트를 작성하고 할일에 대한 %를 알려주는 어플리케이션
+          입니다.
         </p>
       </div>
 
       <div className="mt-8">
         <h4 className="text-lg font-bold">스킬</h4>
         <div className="mt-3 flex flex-wrap gap-3">
-          <Skill>Next.js(App)</Skill>
           <Skill>TypeScript</Skill>
-          <Skill>React</Skill>
-          <Skill>React-query</Skill>
+          <Skill>React-Native</Skill>
+          <Skill>Zustand</Skill>
         </div>
       </div>
 
@@ -45,3 +39,5 @@ export const Dallem = () => {
     </>
   )
 }
+
+export default SlideTodo
