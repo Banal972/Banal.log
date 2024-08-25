@@ -2,7 +2,7 @@ import Link from "next/link"
 
 import Skill from "@/components/page/about/Skill"
 
-export const Dallem = () => {
+const BanalLog = () => {
   return (
     <>
       <div className="flex items-center gap-3">
@@ -12,19 +12,15 @@ export const Dallem = () => {
 
       <div className="mt-8">
         <h4 className="text-xl font-bold">프로젝트 설명</h4>
-        <p className="mt-3">
-          유저가 바쁜 일상 속 휴식을 위한 다양한 모임을 탐색하고 참여하며, 직접 모임을 개설하고
-          리뷰를 생성할 수 있는 서비스입니다.
-        </p>
+        <p className="mt-3">심플하게 만들어 노트처럼 작성한 프론트엔드 개발자의 회고록 Banal.log</p>
       </div>
 
       <div className="mt-8">
         <h4 className="text-xl font-bold">프로젝트 설명</h4>
         <div className="mt-3 flex flex-wrap gap-3">
-          <Skill>Next.js(App)</Skill>
+          <Skill>Next.js(Pages)</Skill>
           <Skill>TypeScript</Skill>
           <Skill>React</Skill>
-          <Skill>React-query</Skill>
         </div>
       </div>
 
@@ -35,3 +31,5 @@ export const Dallem = () => {
     </>
   )
 }
+
+export default BanalLog

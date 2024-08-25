@@ -1,10 +1,16 @@
+import Link from "next/link"
+
 import { IoLogoGithub, IoMail } from "react-icons/io5"
 
 import Container from "@/components/page/about/Container"
 import LinkIcon from "@/components/page/about/LinkIcon"
 import ProjectModal from "@/components/page/about/ProjectModal"
 import Skill from "@/components/page/about/Skill"
+import BanalLog from "@/components/page/about/project/BanalLog"
 import { Comming } from "@/components/page/about/project/Comming"
+import { Dallem } from "@/components/page/about/project/Dallem"
+import Gugumo from "@/components/page/about/project/Gugumo"
+import SlideTodo from "@/components/page/about/project/SlideTodo"
 import { useProjectModal } from "@/provider/ProjectModalProvider"
 
 const AboutPage = () => {
@@ -42,13 +48,17 @@ const AboutPage = () => {
           <h3 className="mb-3 border-b pb-3 text-xl font-bold">Work Experience</h3>
           <Container>
             <div className="flex items-center justify-between">
-              <h4 className="text-lg font-bold">잇다소프트</h4>
+              <h4 className="text-lg font-bold">
+                <Link href="https://www.itddaa.com" target="_blank">
+                  잇다소프트
+                </Link>
+              </h4>
               <p className="text-sm text-gray-500">2020.12 ~ 2023.07 (정규직)</p>
             </div>
             <p className="text-sm">인터랙티브 웹 사이트 제작 에이전시</p>
 
             <div className="mt-10">
-              <h4 className="text-base font-bold">웹 퍼블리셔</h4>
+              <h4 className="text-sm font-bold">웹 퍼블리셔</h4>
               <ul className="mt-2 text-sm text-gray-700">
                 <li className="flex items-center gap-2 before:block before:size-1 before:rounded-full before:bg-gray-700">
                   기존 CSS → SCSS 컴파일러 도입
@@ -71,15 +81,18 @@ const AboutPage = () => {
               onClick={() =>
                 openModal({
                   data: { title: "같이 달램", date: "2024.07 ~ 2024.08" },
-                  modalContent: <Comming />,
+                  modalContent: <Dallem />,
                 })
               }
-              className="cursor-pointer"
+              className="cursor-pointer transition-shadow duration-300 hover:shadow-lg"
             >
               <h4 className="flex items-center justify-between gap-2 font-semibold">
                 같이달램 <span className="text-xs font-normal">(2024.07 ~ 2024.08)</span>
               </h4>
-              <p className="mt-5">내용을 입력하는곳 입니다.</p>
+              <p className="mt-3 text-sm">
+                유저가 바쁜 일상 속 휴식을 위한 다양한 모임을 탐색하고 참여하며, 직접 모임을
+                개설하고 리뷰를 생성할 수 있는 서비스입니다.
+              </p>
               <div className="mt-5 flex flex-wrap gap-2 text-sm">
                 <Skill>Next.js(App)</Skill>
                 <Skill>TypeScript</Skill>
@@ -90,16 +103,19 @@ const AboutPage = () => {
             <Container
               onClick={() =>
                 openModal({
-                  data: { title: "슬라이드 투 두", date: "null" },
-                  modalContent: <Comming />,
+                  data: { title: "슬라이드 투 두", date: "2024.08 ~ 2024.08" },
+                  modalContent: <SlideTodo />,
                 })
               }
-              className="cursor-pointer"
+              className="cursor-pointer transition-shadow duration-300 hover:shadow-lg"
             >
               <h4 className="flex items-center justify-between gap-2 font-semibold">
-                슬라이드 투 두 <span className="text-xs font-normal">(2024.07 ~ 2024.08)</span>
+                슬라이드 투 두 <span className="text-xs font-normal">(2024.08 ~ 2024.08)</span>
               </h4>
-              <p className="mt-5">내용을 입력하는곳 입니다.</p>
+              <p className="mt-3 text-sm">
+                사용자가 스마트 기기로 목표, 할일과, 노트를 작성하고 할일에 대한 %를 알려주는
+                어플리케이션 입니다.
+              </p>
               <div className="mt-5 flex flex-wrap gap-2 text-sm">
                 <Skill>TypeScript</Skill>
                 <Skill>React-Native</Skill>
@@ -109,16 +125,16 @@ const AboutPage = () => {
             <Container
               onClick={() =>
                 openModal({
-                  data: { title: "구구모", date: "null" },
-                  modalContent: <Comming />,
+                  data: { title: "구구모", date: "2024.04 ~ 2024.06" },
+                  modalContent: <Gugumo />,
                 })
               }
-              className="cursor-pointer"
+              className="cursor-pointer transition-shadow duration-300 hover:shadow-lg"
             >
               <h4 className="flex items-center justify-between gap-2 font-semibold">
                 구구모 <span className="text-xs font-normal">(2024.04 ~ 2024.06)</span>
               </h4>
-              <p className="mt-5">내용을 입력하는곳 입니다.</p>
+              <p className="mt-3 text-sm">동네 구기종목 매칭 서비스 구구모 입니다.</p>
               <div className="mt-5 flex flex-wrap gap-2 text-sm">
                 <Skill>Next.js(App)</Skill>
                 <Skill>TypeScript</Skill>
@@ -129,16 +145,18 @@ const AboutPage = () => {
             <Container
               onClick={() =>
                 openModal({
-                  data: { title: "Banal.log", date: "null" },
-                  modalContent: <Comming />,
+                  data: { title: "Banal.log", date: "2024.08 ~ 진행중" },
+                  modalContent: <BanalLog />,
                 })
               }
-              className="cursor-pointer"
+              className="cursor-pointer transition-shadow duration-300 hover:shadow-lg"
             >
               <h4 className="flex items-center justify-between gap-2 font-semibold">
                 Banal.log <span className="text-xs font-normal">(2024.08 ~ 진행중)</span>
               </h4>
-              <p className="mt-5">내용을 입력하는곳 입니다.</p>
+              <p className="mt-3 text-sm">
+                심플하게 만들어 노트처럼 작성한 프론트엔드 개발자의 회고록 Banal.log
+              </p>
               <div className="mt-5 flex flex-wrap gap-2 text-sm">
                 <Skill>Next.js(Pages)</Skill>
                 <Skill>TypeScript</Skill>
