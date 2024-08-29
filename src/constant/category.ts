@@ -35,4 +35,22 @@ const CATEGORYS = [
   },
 ]
 
-export default CATEGORYS
+const MAINCATEGORYS = [
+  {
+    href: "/blog",
+    category: "블로그",
+    label: "지나온 일들을 회고한곳",
+  },
+  {
+    href: "/discover",
+    category: "지식창고",
+    label: "새로운 지식을 얻고 정리한곳",
+  },
+  {
+    href: "/blog",
+    category: "코딩 테스트",
+    label: "코딩 테스트 풀이과정을 정리한곳",
+  },
+]
+
+export { MAINCATEGORYS, CATEGORYS }
