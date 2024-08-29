@@ -8,7 +8,6 @@ import LinkIcon from "@/components/page/about/LinkIcon"
 import ProjectModal from "@/components/page/about/ProjectModal"
 import Skill from "@/components/page/about/Skill"
 import BanalLog from "@/components/page/about/project/BanalLog"
-import { Comming } from "@/components/page/about/project/Comming"
 import { Dallem } from "@/components/page/about/project/Dallem"
 import Gugumo from "@/components/page/about/project/Gugumo"
 import SlideTodo from "@/components/page/about/project/SlideTodo"
@@ -39,11 +38,11 @@ const AboutPage = () => {
         </div>
 
         <div className="mt-10 border-t pt-5">
-          <p>
+          <p className="text-sm">
             여러 프로젝트를 통해 성능 최적화의 경험을 쌓은 것을 바탕으로, 좋은 제품을 개발하여
-            누구에게나 자신 있게 추천할 수 있는 제품을 개발 하는 것을 목표로 하고 있습니다. 다양한
-            직군과 소통, 피드백을 받는 것을 좋아하고, 받은 피드백 적극 수용하면서 끊임없이 개선해
-            나가고 있습니다.
+            누구에게나 자신 있게 추천할 수 있는 제품을 개발 하는 것을 목표로 하고 있습니다.
+            <br /> 다양한 직군과 소통, 피드백을 받는 것을 좋아하고, 받은 피드백 적극 수용하면서
+            끊임없이 개선해 나가고 있습니다.
           </p>
         </div>
 

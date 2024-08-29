@@ -10,9 +10,25 @@ import "./globals.css"
 
 dayjs.locale("ko")
 
-const Cafe24Oneprettynight = localFont({
-  src: "../font/Cafe24Oneprettynight/Cafe24Oneprettynight-v2.0.woff2",
-  variable: "--font-Cafe24Oneprettynight",
+const Ownglyph_okticon = localFont({
+  src: [
+    {
+      path: "../font/Ownglyph_okticon/Ownglyph_okticon-Lt.woff2",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../font/Ownglyph_okticon/Ownglyph_okticon-Rg.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../font/Ownglyph_okticon/Ownglyph_okticon-Bd.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-Ownglyph_okticon",
 })
 
 const App = ({ Component, pageProps }: AppProps) => {
@@ -25,7 +41,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           content="심플하게 만들어 노트처럼 작성한 프론트엔드 개발자의 회고록 Banal.log"
         />
       </Head>
-      <div className={`${Cafe24Oneprettynight.className}`}>
+      <div className={`${Ownglyph_okticon.className}`}>
         <ProjectModalProvider>
           <Component {...pageProps} />
         </ProjectModalProvider>

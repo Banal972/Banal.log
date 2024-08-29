@@ -1,7 +1,5 @@
-import Link from "next/link"
-
-import { IoCalendarClearOutline } from "react-icons/io5"
-
+import PrevBtn from "@/components/common/PrevBtn"
+import Lists from "@/components/page/category/List"
 import { getAllPosts } from "@/libs/posts"
 import dayjs from "dayjs"
 import isBetween from "dayjs/plugin/isBetween"
@@ -39,27 +37,19 @@ const DiscoverPage = ({ posts }: { posts: [string, Post[]][] }) => {
   return (
     <main>
       <h1 className="text-lg font-semibold">지식창고</h1>
-      <p className="mt-5">프로젝트를 진행하면서 새로운 지식을 얻은것을 정리하는 곳 입니다.</p>
+      <p className="mt-5 text-sm">
+        프로젝트를 진행하면서 새로운 지식을 얻은것을 정리하는 곳 입니다.
+      </p>
       <div className="mt-1 flex gap-3 text-sm">
-        <Link href={"/"}>되돌아가기</Link>
-        <Link href={"/blog"}>블로그</Link>
-        <Link href={"/question"}>코딩 테스트</Link>
+        <PrevBtn link={"/"}>되돌아가기</PrevBtn>
+        <PrevBtn link={"/blog"}>블로그</PrevBtn>
+        <PrevBtn link={"/question"}>코딩 테스트</PrevBtn>
       </div>
 
       {posts.map((post) => (
         <div key={post[0]} className="mt-10 flex gap-5 border-t py-5">
           <p>{post[0]}</p>
-          <ul className="flex-1">
-            {post[1].map((list) => (
-              <li key={list.date} className="mt-3 flex items-center justify-between first:mt-0">
-                <Link href={list.slug}>{list.title}</Link>
-                <p className="flex items-center gap-1 text-sm text-gray-500">
-                  <IoCalendarClearOutline />
-                  {list.date}
-                </p>
-              </li>
-            ))}
-          </ul>
+          <Lists data={post[1]} />
         </div>
       ))}
     </main>

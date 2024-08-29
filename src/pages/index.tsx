@@ -2,11 +2,28 @@ import Link from "next/link"
 
 import { IoLogoGithub, IoMail } from "react-icons/io5"
 
+import { MAINCATEGORYS } from "@/constant/category"
+import useFadeIn from "@/hooks/animation/useFadeIn"
+import { animated, useChain, useSpringRef, useTrail } from "@react-spring/web"
+
 const IndexPage = () => {
+  const { ref: fadeRef, props: fadeProps1 } = useFadeIn()
+  const { ref: fadeRef2, props: fadeProps2 } = useFadeIn("left")
+  const { ref: fadeRef3, props: fadeProps3 } = useFadeIn("left")
+
+  const trailsRef = useSpringRef()
+  const trails = useTrail(MAINCATEGORYS.length, {
+    ref: trailsRef,
+    from: { opacity: 0, y: 30 },
+    to: { opacity: 1, y: 0 },
+  })
+
+  useChain([fadeRef, fadeRef2, fadeRef3, trailsRef], [0, 0.2, 0.2, 0.3])
+
   return (
     <main>
       <div className="flex items-center justify-between">
-        <h1 className="text-lg font-semibold">Banal.log</h1>
+        <h1 className="text-lg font-bold">Banal.log</h1>
         <div className="flex gap-2">
           <Link href="https://github.com/Banal972" target="_blank">
             <IoLogoGithub />
@@ -16,38 +33,30 @@ const IndexPage = () => {
           </Link>
         </div>
       </div>
-      <p className="mt-5">
+      <animated.p style={fadeProps1} className="mt-5 text-sm">
         사용자가 불편함이 없이 상호작용 하고, 복잡한것을 단순화 하는것을 좋아하며
         <br />
         다양한 직군과 소통, 피드백을 받는 것에 재미를 느끼고 틈틈이 기록합니다.
-      </p>
+      </animated.p>
 
-      <div className="mt-10 flex gap-5">
+      <animated.div style={fadeProps2} className="mt-20 flex gap-5">
         <Link href="/about" className="font-bold">
           About
         </Link>
-      </div>
-      <div className="mt-5 flex gap-5 border-t pt-5">
-        <p className="font-bold">Category</p>
+      </animated.div>
+      <div className="mt-6 flex gap-5 border-t pt-6">
+        <animated.p style={fadeProps3} className="font-bold">
+          Category
+        </animated.p>
         <ul>
-          <li className="flex">
-            <Link href="/blog" className="flex items-center gap-3">
-              <span className="font-medium">블로그</span>
-              <p className="text-sm">지나온 일들을 회고한곳</p>
-            </Link>
-          </li>
-          <li className="mt-1">
-            <Link href="/discover" className="flex items-center gap-3">
-              <span className="font-medium">지식창고</span>
-              <p className="text-sm">새로운 지식을 얻고 정리한곳</p>
-            </Link>
-          </li>
-          <li className="mt-1">
-            <Link href="/question" className="flex items-center gap-3">
-              <span className="font-medium">코딩 테스트</span>
-              <p className="text-sm">코딩 테스트 풀이과정을 정리한곳</p>
-            </Link>
-          </li>
+          {trails.map((style, i) => (
+            <animated.li style={style} key={i} className="mt-3 first:mt-0">
+              <Link href={MAINCATEGORYS[i].href} className="flex items-center gap-3">
+                <span className="font-medium">{MAINCATEGORYS[i].category}</span>
+                <p className="text-sm">{MAINCATEGORYS[i].label}</p>
+              </Link>
+            </animated.li>
+          ))}
         </ul>
       </div>
     </main>

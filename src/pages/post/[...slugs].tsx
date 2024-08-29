@@ -109,12 +109,11 @@ const TOC = ({ toc }: { toc: any }) => {
   )
 }
 
-const PostPage = ({ post, mdx, toc }: { post: Post; mdx: MDXRemoteSerializeResult; toc: any }) => {
+const PostPage = ({ post, mdx }: { post: Post; mdx: MDXRemoteSerializeResult; toc: any }) => {
   const router = useRouter()
 
   return (
     <main className="relative">
-      <TOC toc={toc} />
       <div className="border-b px-5 py-10 text-center">
         <h1 className="text-2xl font-bold">{post.title}</h1>
 
