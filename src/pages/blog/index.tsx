@@ -38,7 +38,7 @@ const BlogPage = ({ posts }: { posts: [string, Post[]][] }) => {
     <main>
       <h1 className="text-lg font-semibold">Blog</h1>
       <p className="mt-3 text-sm">지나온 일들을 회고한 기록들 입니다.</p>
-      <div className="mt-2 flex gap-3 text-xs">
+      <div className="mt-2 flex flex-wrap gap-3 text-xs">
         <PrevBtn link="/">되돌아가기</PrevBtn>
         <PrevBtn link="/discover">지식창고</PrevBtn>
         <PrevBtn link="/question">코딩 테스트</PrevBtn>

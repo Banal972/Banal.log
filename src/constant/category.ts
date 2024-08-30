@@ -47,7 +47,7 @@ const MAINCATEGORYS = [
     label: "새로운 지식을 얻고 정리한곳",
   },
   {
-    href: "/blog",
+    href: "/question",
     category: "코딩 테스트",
     label: "코딩 테스트 풀이과정을 정리한곳",
   },

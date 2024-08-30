@@ -32,7 +32,7 @@ const QuestionPage = ({ posts }: { posts: [string, Post[]][] }) => {
     <main>
       <h1 className="text-lg font-semibold">코딩 테스트</h1>
       <p className="mt-5 text-sm">코딩 테스트 문제를 풀이하는 시간을 갖는 공간 입니다.</p>
-      <div className="mt-1 flex gap-3 text-sm">
+      <div className="mt-1 flex flex-wrap gap-3 text-sm">
         <PrevBtn link={"/"}>되돌아가기</PrevBtn>
         <PrevBtn link={"/blog"}>블로그</PrevBtn>
         <PrevBtn link={"/discover"}>지식 창고</PrevBtn>
