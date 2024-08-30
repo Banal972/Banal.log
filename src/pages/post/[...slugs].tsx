@@ -6,9 +6,9 @@ import { notFound, useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import { IoCalendarClearOutline, IoTimeOutline } from "react-icons/io5"
 
-import { serializeMdx } from "@/libs/mdx"
 import { getAllPosts } from "@/libs/posts"
 import rehypeAutolinkHeadings from "rehype-autolink-headings"
+import rehypePrettyCode from "rehype-pretty-code"
 import rehypeSlug from "rehype-slug"
 import remarkBreaks from "remark-breaks"
 import remarkGfm from "remark-gfm"
@@ -51,7 +51,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     parseFrontmatter: true,
     mdxOptions: {
       remarkPlugins: [remarkGfm, remarkBreaks, remarkToc],
-      rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
+      rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings, rehypePrettyCode],
       format: "mdx",
     },
   })
@@ -114,8 +114,8 @@ const PostPage = ({ post, mdx }: { post: Post; mdx: MDXRemoteSerializeResult; to
 
   return (
     <main className="relative">
-      <div className="border-b px-5 py-10 text-center">
-        <h1 className="text-2xl font-bold">{post.title}</h1>
+      <div className="border-b pb-10 text-center">
+        <h1 className="break-keep text-xl font-bold md:text-2xl">{post.title}</h1>
 
         <div className="mt-5 flex justify-center gap-2 rounded px-4 py-1 text-sm font-medium uppercase text-blue-500">
           {post.tags.map((tag) => (
@@ -145,7 +145,7 @@ const PostPage = ({ post, mdx }: { post: Post; mdx: MDXRemoteSerializeResult; to
           </button>
         </div>
       </div>
-      <div className="prose max-w-none p-5">
+      <div className="prose prose-sm max-w-none px-3 py-10 md:prose-base md:px-5">
         <MDXRemote {...mdx} />
       </div>
     </main>
