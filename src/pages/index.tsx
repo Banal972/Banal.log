@@ -44,7 +44,7 @@ const IndexPage = () => {
           About
         </Link>
       </animated.div>
-      <div className="mt-6 flex gap-5 border-t pt-6">
+      <div className="mt-6 flex flex-col gap-5 border-t pt-6 md:flex-row">
         <animated.p style={fadeProps3} className="font-bold">
           Category
         </animated.p>
@@ -52,7 +52,7 @@ const IndexPage = () => {
           {trails.map((style, i) => (
             <animated.li style={style} key={i} className="mt-3 first:mt-0">
               <Link href={MAINCATEGORYS[i].href} className="flex items-center gap-3">
-                <span className="font-medium">{MAINCATEGORYS[i].category}</span>
+                <span className="text-nowrap font-medium">{MAINCATEGORYS[i].category}</span>
                 <p className="text-sm">{MAINCATEGORYS[i].label}</p>
               </Link>
             </animated.li>

@@ -40,7 +40,7 @@ const DiscoverPage = ({ posts }: { posts: [string, Post[]][] }) => {
       <p className="mt-5 text-sm">
         프로젝트를 진행하면서 새로운 지식을 얻은것을 정리하는 곳 입니다.
       </p>
-      <div className="mt-1 flex gap-3 text-sm">
+      <div className="mt-1 flex flex-wrap gap-3 text-sm">
         <PrevBtn link={"/"}>되돌아가기</PrevBtn>
         <PrevBtn link={"/blog"}>블로그</PrevBtn>
         <PrevBtn link={"/question"}>코딩 테스트</PrevBtn>
