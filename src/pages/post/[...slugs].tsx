@@ -41,7 +41,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = [...slugs].join("/") // 다이나믹 라우터 조합
 
   const post = getAllPosts().find((v) => {
-    return v.slug === `/post/${slug}/`
+    return v.slug === `/post/${slug}`
   })
 
   if (!post) {

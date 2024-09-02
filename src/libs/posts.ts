@@ -29,7 +29,7 @@ export const parsePost = (postPath: string) => {
       slug: postPath
         .replace(BASE_PATH, "/post")
         .slice(postPath.indexOf(BASE_PATH))
-        .replace("content.mdx", ""),
+        .replace(".mdx", ""),
       readingMinutes: Math.ceil(readingTime(content).minutes),
       wordCount: content.split(/\s+/gu).length, // 총 글자수
     }
