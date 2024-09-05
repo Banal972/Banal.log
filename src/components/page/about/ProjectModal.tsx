@@ -33,11 +33,13 @@ const ProjectModal = () => {
           />
           <animated.div
             style={springs}
-            className="absolute left-1/2 top-1/2 w-[90%] max-w-[768px] rounded-lg border bg-white px-5 py-10"
+            className="absolute left-1/2 top-1/2 flex max-h-[90vh] w-[90%] max-w-[768px] flex-col rounded-lg border bg-white px-5 py-10"
           >
-            <h4 className="text-xl font-bold">{data?.title}</h4>
-            <p className="mt-3">{data?.date}</p>
-            {modalContent}
+            <div className="flex-none">
+              <h4 className="text-xl font-bold">{data?.title}</h4>
+              <p className="mt-3">{data?.date}</p>
+            </div>
+            <div className="scroll flex-1 overflow-y-auto py-5">{modalContent}</div>
           </animated.div>
         </animated.div>
       ) : null}
