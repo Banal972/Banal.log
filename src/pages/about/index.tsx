@@ -242,17 +242,17 @@ const AboutPage = () => {
             {
               key: "403",
               name: "포텐데이 403",
-              organization: "기관 : 비사이드",
+              organization: "비사이드",
             },
             {
               key: "codeit",
               name: "코드잇 스프린트 심화 프론트엔드 챌린지 2기",
-              organization: "기관 : 코드잇",
+              organization: "코드잇",
             },
             {
               key: "wonted",
               name: "프리온보딩 프론트엔드 챌린지",
-              organization: "기관 : 원티드",
+              organization: "원티드",
             },
           ].map((history) => (
             <Container key={history.key} className="mt-3 first:mt-0">
