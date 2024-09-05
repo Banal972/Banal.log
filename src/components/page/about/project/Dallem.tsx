@@ -42,7 +42,7 @@ export const Dallem = () => {
         </Link>
       </div>
 
-      <div className="prose prose-sm max-w-none px-3 py-10 md:prose-base md:px-5">
+      <div className="prose prose-sm max-w-none px-3 py-10 md:prose-base prose-a:text-blue-500 prose-a:underline-offset-8 md:px-5">
         <h3>Tech Stack</h3>
         <ul>
           <li>Next.js(App), TanStack Query, TypeScript, React, Tailwind CSS</li>
@@ -84,7 +84,11 @@ export const Dallem = () => {
         <h3>타입스크립트 분리</h3>
         <ul>
           <li>같은 동작을 하는 타입이 여러 번 중복 선언될 필요 없어 중복 타입 최소화</li>
-          <li>타입스크립트의 유틸리티를 활용하여 중복을 제거</li>
+          <li>
+            <Link href={"/post/typescript-utils"} target="_blank">
+              타입스크립트의 유틸리티를 활용하여 중복을 제거
+            </Link>
+          </li>
           <li>가독성 향상 과 개발 효율 및 실수 방지</li>
         </ul>
 
