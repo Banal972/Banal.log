@@ -9,6 +9,7 @@ import ProjectModal from "@/components/page/about/ProjectModal"
 import Skill from "@/components/page/about/Skill"
 import BanalLog from "@/components/page/about/project/BanalLog"
 import { Dallem } from "@/components/page/about/project/Dallem"
+import DallemR from "@/components/page/about/project/DallemR"
 import Gugumo from "@/components/page/about/project/Gugumo"
 import SlideTodo from "@/components/page/about/project/SlideTodo"
 import { useProjectModal } from "@/provider/ProjectModalProvider"
@@ -32,17 +33,21 @@ const AboutPage = () => {
               </LinkIcon>
             </div>
           </div>
-          <div className="relative size-24 rounded-lg bg-black">
-            <Image src="/" fill className="object-cover" alt="프로필 사진" />
+          <div className="relative size-32 overflow-hidden rounded-lg border">
+            <Image
+              src="/asset/profile.jpg"
+              fill
+              className="rounded-lg object-cover object-top"
+              alt="프로필 사진"
+            />
           </div>
         </div>
 
         <div className="mt-10 border-t pt-5">
           <p className="text-sm">
-            여러 프로젝트를 통해 성능 최적화의 경험을 쌓은 것을 바탕으로, 좋은 제품을 개발하여
-            누구에게나 자신 있게 추천할 수 있는 제품을 개발 하는 것을 목표로 하고 있습니다.
-            <br /> 다양한 직군과 소통, 피드백을 받는 것을 좋아하고, 받은 피드백 적극 수용하면서
-            끊임없이 개선해 나가고 있습니다.
+            누구에게나 자신 있게 추천할 수 있는 뛰어난 제품을 개발하는 것을 목표로 하고 있으며, 좋은
+            제품을 만들기 위해 적극적으로 커뮤니케이션을 하고 있습니다. <br />
+            다양한 직군과 소통하고 피드백을 적극 수용하여 지속적으로 개선해 나가고 있습니다.
           </p>
         </div>
 
@@ -73,12 +78,61 @@ const AboutPage = () => {
                 </li>
               </ul>
             </div>
+
+            <div className="mt-10">
+              <h4 className="text-sm font-bold">대표 프로젝트</h4>
+              <ul className="ml-3 mt-2 text-sm">
+                <li className="flex items-center gap-2">
+                  <div className="size-4 rounded-sm bg-blue-500"></div>
+                  <Link href="https://www.itddaa.com/" target="_blank">
+                    잇다소프트 <span className="text-xs">(Jquery, GSAP, PHP)</span>
+                  </Link>
+                </li>
+                <li className="mt-2 flex items-center gap-2">
+                  <div className="size-4 rounded-sm bg-orange-500"></div>
+                  <Link href="https://www.awesomemedia.co.kr/" target="_blank">
+                    어썸 미디어 <span className="text-xs">(Jquery, GSAP, PHP)</span>
+                  </Link>
+                </li>
+                <li className="mt-2 flex items-center gap-2">
+                  <div className="size-4 rounded-sm bg-green-500"></div>
+                  <Link href="https://purerang.co.kr/" target="_blank">
+                    퓨어랑 <span className="text-xs">(Jquery, GSAP, PHP)</span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </Container>
         </div>
 
         <div className="mt-20">
           <h3 className="mb-3 border-b pb-3 text-xl font-bold">Project</h3>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <Container
+              onClick={() =>
+                openModal({
+                  data: { title: "같이 달램 - 리펙토링", date: "2024.09 ~ 진행중" },
+                  modalContent: <DallemR />,
+                })
+              }
+              className="cursor-pointer transition-shadow duration-300 hover:shadow-lg"
+            >
+              <h4 className="flex items-center justify-between gap-2 font-semibold">
+                같이달램 - 리펙토링 <span className="text-xs font-normal">(2024.09 ~ 진행중)</span>
+              </h4>
+              <p className="mt-3 text-sm">
+                기존 같이달램의 마이크로상태 관리 와 hooks 디자인 패턴으로 UI에서 기능을 명확하게
+                분리 및 로그인 UI 개선
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2 text-sm">
+                <Skill>Next.js(App)</Skill>
+                <Skill>TypeScript</Skill>
+                <Skill>Next-auth</Skill>
+                <Skill>React</Skill>
+                <Skill>React-query</Skill>
+              </div>
+            </Container>
+
             <Container
               onClick={() =>
                 openModal({
@@ -102,48 +156,7 @@ const AboutPage = () => {
                 <Skill>React-query</Skill>
               </div>
             </Container>
-            <Container
-              onClick={() =>
-                openModal({
-                  data: { title: "슬라이드 투 두", date: "2024.08 ~ 2024.08" },
-                  modalContent: <SlideTodo />,
-                })
-              }
-              className="cursor-pointer transition-shadow duration-300 hover:shadow-lg"
-            >
-              <h4 className="flex items-center justify-between gap-2 font-semibold">
-                슬라이드 투 두 <span className="text-xs font-normal">(2024.08 ~ 2024.08)</span>
-              </h4>
-              <p className="mt-3 text-sm">
-                사용자가 스마트 기기로 목표, 할일과, 노트를 작성하고 할일에 대한 %를 알려주는
-                어플리케이션 입니다.
-              </p>
-              <div className="mt-5 flex flex-wrap gap-2 text-sm">
-                <Skill>TypeScript</Skill>
-                <Skill>React-Native</Skill>
-                <Skill>Zustand</Skill>
-              </div>
-            </Container>
-            <Container
-              onClick={() =>
-                openModal({
-                  data: { title: "구구모", date: "2024.04 ~ 2024.06" },
-                  modalContent: <Gugumo />,
-                })
-              }
-              className="cursor-pointer transition-shadow duration-300 hover:shadow-lg"
-            >
-              <h4 className="flex items-center justify-between gap-2 font-semibold">
-                구구모 <span className="text-xs font-normal">(2024.04 ~ 2024.06)</span>
-              </h4>
-              <p className="mt-3 text-sm">동네 구기종목 매칭 서비스 구구모 입니다.</p>
-              <div className="mt-5 flex flex-wrap gap-2 text-sm">
-                <Skill>Next.js(App)</Skill>
-                <Skill>TypeScript</Skill>
-                <Skill>React</Skill>
-                <Skill>React-query</Skill>
-              </div>
-            </Container>
+
             <Container
               onClick={() =>
                 openModal({
@@ -163,6 +176,50 @@ const AboutPage = () => {
                 <Skill>Next.js(Pages)</Skill>
                 <Skill>TypeScript</Skill>
                 <Skill>React</Skill>
+              </div>
+            </Container>
+
+            {/* <Container
+              onClick={() =>
+                openModal({
+                  data: { title: "슬라이드 투 두", date: "2024.08 ~ 진행중" },
+                  modalContent: <SlideTodo />,
+                })
+              }
+              className="cursor-pointer transition-shadow duration-300 hover:shadow-lg"
+            >
+              <h4 className="flex items-center justify-between gap-2 font-semibold">
+                슬라이드 투 두 <span className="text-xs font-normal">(2024.08 ~ 진행중)</span>
+              </h4>
+              <p className="mt-3 text-sm">
+                사용자가 스마트 기기로 목표, 할일과, 노트를 작성하고 할일에 대한 %를 알려주는
+                어플리케이션 입니다.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2 text-sm">
+                <Skill>TypeScript</Skill>
+                <Skill>React-Native</Skill>
+                <Skill>Zustand</Skill>
+              </div>
+            </Container> */}
+
+            <Container
+              onClick={() =>
+                openModal({
+                  data: { title: "구구모", date: "2024.04 ~ 2024.06" },
+                  modalContent: <Gugumo />,
+                })
+              }
+              className="cursor-pointer transition-shadow duration-300 hover:shadow-lg"
+            >
+              <h4 className="flex items-center justify-between gap-2 font-semibold">
+                구구모 <span className="text-xs font-normal">(2024.04 ~ 2024.06)</span>
+              </h4>
+              <p className="mt-3 text-sm">동네 구기종목 매칭 서비스 구구모 입니다.</p>
+              <div className="mt-5 flex flex-wrap gap-2 text-sm">
+                <Skill>Next.js(App)</Skill>
+                <Skill>TypeScript</Skill>
+                <Skill>React</Skill>
+                <Skill>React-query</Skill>
               </div>
             </Container>
           </div>
