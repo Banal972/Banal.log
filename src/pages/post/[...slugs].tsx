@@ -1,6 +1,7 @@
 import { GetStaticProps } from "next"
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote"
 import { serialize } from "next-mdx-remote/serialize"
+import Head from "next/head"
 import { notFound, useRouter } from "next/navigation"
 
 import { useEffect, useState } from "react"
@@ -120,6 +121,9 @@ const PostPage = ({ post, mdx }: { post: Post; mdx: MDXRemoteSerializeResult; to
 
   return (
     <>
+      <Head>
+        <title>{`Banal.log | ${post.title}`}</title>
+      </Head>
       <main className="relative">
         <div className="border-b pb-10 text-center">
           <h1 className="break-keep text-xl font-bold md:text-2xl">{post.title}</h1>
