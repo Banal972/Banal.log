@@ -45,7 +45,7 @@ const BanalLog = () => {
       <div className="prose prose-sm max-w-none px-3 py-10 md:prose-base md:px-5">
         <h3>Tech Stack</h3>
         <ul>
-          <li>Next.js(Pages) TypeScript React</li>
+          <li>Next.js(Pages), TypeScript, React</li>
         </ul>
 
         <h3>스터디</h3>
