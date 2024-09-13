@@ -11,7 +11,7 @@ const Document = () => {
           property="og:description"
           content="심플하게 만들어 노트처럼 작성한 프론트엔드 개발자의 회고록 Banal.log"
         />
-        <meta property="og:image" content="" />
+        <meta property="og:image" content="/asset/og_img.jpg" />
       </Head>
       <body className="mx-auto max-w-2xl bg-[#fafaea] px-3 py-20 md:px-5">
         <Main />
