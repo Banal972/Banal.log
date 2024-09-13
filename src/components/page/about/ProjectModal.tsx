@@ -1,3 +1,5 @@
+import { IoClose } from "react-icons/io5"
+
 import { useProjectModal } from "@/provider/ProjectModalProvider"
 import { animated, useChain, useSpring, useSpringRef, useTransition } from "@react-spring/web"
 
@@ -33,10 +35,13 @@ const ProjectModal = () => {
           />
           <animated.div
             style={springs}
-            className="absolute left-1/2 top-1/2 flex max-h-[90vh] w-[90%] max-w-[768px] flex-col rounded-lg border bg-white px-5 py-10"
+            className="absolute left-1/2 top-1/2 flex max-h-[70vh] w-[85%] max-w-[768px] flex-col rounded-lg border bg-white px-5 py-10"
           >
-            <div className="flex-none">
-              <h4 className="text-xl font-bold">{data?.title}</h4>
+            <div className="flex-none pb-3">
+              <div className="flex justify-between">
+                <h4 className="text-xl font-bold">{data?.title}</h4>
+                <IoClose onClick={closeModal} className="cursor-pointer text-2xl md:hidden" />
+              </div>
               <p className="mt-3">{data?.date}</p>
             </div>
             <div className="scroll flex-1 overflow-y-auto py-5">{modalContent}</div>
