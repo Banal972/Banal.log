@@ -12,6 +12,7 @@ import { Dallem } from "@/components/page/about/project/Dallem"
 import DallemR from "@/components/page/about/project/DallemR"
 import Gugumo from "@/components/page/about/project/Gugumo"
 import SlideTodo from "@/components/page/about/project/SlideTodo"
+import { HISTORYS } from "@/constant/history"
 import { useProjectModal } from "@/provider/ProjectModalProvider"
 
 const AboutPage = () => {
@@ -107,7 +108,7 @@ const AboutPage = () => {
 
         <div className="mt-20">
           <h3 className="mb-3 border-b pb-3 text-xl font-bold">Project</h3>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="grid grid-cols-1 items-start gap-4 md:grid-cols-2">
             <Container
               onClick={() =>
                 openModal({
@@ -160,6 +161,30 @@ const AboutPage = () => {
             <Container
               onClick={() =>
                 openModal({
+                  data: { title: "슬라이드 투 두", date: "2024.07 ~ 2024.09" },
+                  modalContent: <SlideTodo />,
+                })
+              }
+              className="cursor-pointer transition-shadow duration-300 hover:shadow-lg"
+            >
+              <h4 className="flex items-center justify-between gap-2 font-semibold">
+                슬라이드 투 두 <span className="text-xs font-normal">(2024.07 ~ 2024.09)</span>
+              </h4>
+              <p className="mt-3 text-sm">
+                사용자가 스마트 기기로 목표, 할일과, 노트를 작성하고 할일에 대한 %를 알려주는
+                어플리케이션 입니다.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2 text-sm">
+                <Skill>TypeScript</Skill>
+                <Skill>Expo</Skill>
+                <Skill>Zustand</Skill>
+                <Skill>NativeWind</Skill>
+              </div>
+            </Container>
+
+            <Container
+              onClick={() =>
+                openModal({
                   data: { title: "Banal.log", date: "2024.08 ~ 진행중" },
                   modalContent: <BanalLog />,
                 })
@@ -178,29 +203,6 @@ const AboutPage = () => {
                 <Skill>React</Skill>
               </div>
             </Container>
-
-            {/* <Container
-              onClick={() =>
-                openModal({
-                  data: { title: "슬라이드 투 두", date: "2024.08 ~ 진행중" },
-                  modalContent: <SlideTodo />,
-                })
-              }
-              className="cursor-pointer transition-shadow duration-300 hover:shadow-lg"
-            >
-              <h4 className="flex items-center justify-between gap-2 font-semibold">
-                슬라이드 투 두 <span className="text-xs font-normal">(2024.08 ~ 진행중)</span>
-              </h4>
-              <p className="mt-3 text-sm">
-                사용자가 스마트 기기로 목표, 할일과, 노트를 작성하고 할일에 대한 %를 알려주는
-                어플리케이션 입니다.
-              </p>
-              <div className="mt-5 flex flex-wrap gap-2 text-sm">
-                <Skill>TypeScript</Skill>
-                <Skill>React-Native</Skill>
-                <Skill>Zustand</Skill>
-              </div>
-            </Container> */}
 
             <Container
               onClick={() =>
@@ -228,37 +230,29 @@ const AboutPage = () => {
         <div className="mt-20">
           <h3 className="mb-3 border-b pb-3 text-xl font-bold">SKILL</h3>
           <div className="flex flex-wrap gap-3 text-sm">
-            <Skill>JavaScript</Skill>
             <Skill>TypeScript</Skill>
-            <Skill>React-Native</Skill>
-            <Skill>React</Skill>
+            <Skill>JavaScript</Skill>
             <Skill>Next.js</Skill>
+            <Skill>React</Skill>
+            <Skill>React-Native</Skill>
           </div>
         </div>
 
         <div className="mt-20">
           <h3 className="mb-3 border-b pb-3 text-xl font-bold">History</h3>
-          {[
-            {
-              key: "403",
-              name: "포텐데이 403",
-              organization: "비사이드",
-            },
-            {
-              key: "codeit",
-              name: "코드잇 스프린트 심화 프론트엔드 챌린지 2기",
-              organization: "코드잇",
-            },
-            {
-              key: "wonted",
-              name: "프리온보딩 프론트엔드 챌린지",
-              organization: "원티드",
-            },
-          ].map((history) => (
-            <Container key={history.key} className="mt-3 first:mt-0">
-              <h4 className="flex items-center gap-2 font-semibold">{history.name}</h4>
-              <p className="text-sm">기관 : {history.organization}</p>
-            </Container>
+          {HISTORYS.map((history) => (
+            <Link
+              href={history.link}
+              target="_blank"
+              key={history.key}
+              className="mt-3 block first:mt-0"
+            >
+              <Container className="transition-shadow duration-300 hover:shadow-lg">
+                <h4 className="flex items-center gap-2 font-semibold">{history.name}</h4>
+                <p className="text-sm">기관 : {history.organization}</p>
+                {history.date && <p className="text-xs text-slate-500">기간 : {history.date}</p>}
+              </Container>
+            </Link>
           ))}
         </div>
 
