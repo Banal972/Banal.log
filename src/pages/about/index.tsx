@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 
-import { IoLogoGithub, IoMail } from "react-icons/io5"
+import { IoHome, IoLogoGithub, IoMail } from "react-icons/io5"
 
 import Container from "@/components/page/about/Container"
 import LinkIcon from "@/components/page/about/LinkIcon"
@@ -26,6 +26,9 @@ const AboutPage = () => {
             <h2 className="text-2xl font-bold">김지유</h2>
             <p className="mt-1">웹 프론트엔드 개발자</p>
             <div className="mt-1 flex gap-2">
+              <LinkIcon href={"/"}>
+                <IoHome />
+              </LinkIcon>
               <LinkIcon href={"https://github.com/Banal972"} target="_blank">
                 <IoLogoGithub />
               </LinkIcon>
@@ -47,13 +50,14 @@ const AboutPage = () => {
         <div className="mt-10 border-t pt-5">
           <p className="text-sm">
             누구에게나 자신 있게 추천할 수 있는 뛰어난 제품을 개발하는 것을 목표로 하고 있으며, 좋은
-            제품을 만들기 위해 적극적으로 커뮤니케이션을 하고 있습니다. <br />
-            다양한 직군과 소통하고 피드백을 적극 수용하여 지속적으로 개선해 나가고 있습니다.
+            제품을 만들기 위해 적극적으로 커뮤니케이션을 하고 있습니다.
+            <br /> 좋은 습관을 가진 개발자가 되기 위해서 배운것을 꾸준히 기록하며, 원리를 이해하고
+            실용적으로 개발 할 수 있게 항상 노력하고 있습니다.
           </p>
         </div>
 
         <div className="mt-20">
-          <h3 className="mb-3 border-b pb-3 text-xl font-bold">Work Experience</h3>
+          <h4 className="mb-3 border-b pb-3 text-xl font-bold">Work Experience</h4>
           <Container>
             <div className="flex items-center justify-between">
               <h4 className="text-lg font-bold">
@@ -107,7 +111,7 @@ const AboutPage = () => {
         </div>
 
         <div className="mt-20">
-          <h3 className="mb-3 border-b pb-3 text-xl font-bold">Project</h3>
+          <h4 className="mb-3 border-b pb-3 text-xl font-bold">Project</h4>
           <div className="grid grid-cols-1 items-start gap-4 md:grid-cols-2">
             <Container
               onClick={() =>
@@ -126,11 +130,9 @@ const AboutPage = () => {
                 분리 및 로그인 UI 개선
               </p>
               <div className="mt-5 flex flex-wrap gap-2 text-sm">
-                <Skill>Next.js(App)</Skill>
-                <Skill>TypeScript</Skill>
-                <Skill>Next-auth</Skill>
-                <Skill>React</Skill>
-                <Skill>React-query</Skill>
+                {["Next.js(App)", "TypeScript", "React", "TanStack-Query"].map((skill) => (
+                  <Skill key={skill}>{skill}</Skill>
+                ))}
               </div>
             </Container>
 
@@ -151,10 +153,9 @@ const AboutPage = () => {
                 개설하고 리뷰를 생성할 수 있는 서비스입니다.
               </p>
               <div className="mt-5 flex flex-wrap gap-2 text-sm">
-                <Skill>Next.js(App)</Skill>
-                <Skill>TypeScript</Skill>
-                <Skill>React</Skill>
-                <Skill>React-query</Skill>
+                {["Next.js(App)", "TypeScript", "React", "TanStack-Query"].map((skill) => (
+                  <Skill key={skill}>{skill}</Skill>
+                ))}
               </div>
             </Container>
 
@@ -175,10 +176,9 @@ const AboutPage = () => {
                 어플리케이션 입니다.
               </p>
               <div className="mt-5 flex flex-wrap gap-2 text-sm">
-                <Skill>TypeScript</Skill>
-                <Skill>Expo</Skill>
-                <Skill>Zustand</Skill>
-                <Skill>NativeWind</Skill>
+                {["TypeScript", "Expo", "TanStack-Query", "Zustand", "NativeWind"].map((skill) => (
+                  <Skill key={skill}>{skill}</Skill>
+                ))}
               </div>
             </Container>
 
@@ -198,9 +198,9 @@ const AboutPage = () => {
                 심플하게 만들어 노트처럼 작성한 프론트엔드 개발자의 회고록 Banal.log
               </p>
               <div className="mt-5 flex flex-wrap gap-2 text-sm">
-                <Skill>Next.js(Pages)</Skill>
-                <Skill>TypeScript</Skill>
-                <Skill>React</Skill>
+                {["TypeScript", "Next.js(Pages)", "React"].map((skill) => (
+                  <Skill key={skill}>{skill}</Skill>
+                ))}
               </div>
             </Container>
 
@@ -218,28 +218,25 @@ const AboutPage = () => {
               </h4>
               <p className="mt-3 text-sm">동네 구기종목 매칭 서비스 구구모 입니다.</p>
               <div className="mt-5 flex flex-wrap gap-2 text-sm">
-                <Skill>Next.js(App)</Skill>
-                <Skill>TypeScript</Skill>
-                <Skill>React</Skill>
-                <Skill>React-query</Skill>
+                {["TypeScript", "Next.js(App)", "React", "TanStack-Query"].map((skill) => (
+                  <Skill key={skill}>{skill}</Skill>
+                ))}
               </div>
             </Container>
           </div>
         </div>
 
         <div className="mt-20">
-          <h3 className="mb-3 border-b pb-3 text-xl font-bold">SKILL</h3>
+          <h4 className="mb-3 border-b pb-3 text-xl font-bold">SKILL</h4>
           <div className="flex flex-wrap gap-3 text-sm">
-            <Skill>TypeScript</Skill>
-            <Skill>JavaScript</Skill>
-            <Skill>Next.js</Skill>
-            <Skill>React</Skill>
-            <Skill>React-Native</Skill>
+            {["TypeScript", "JavaScript", "Next.js", "React", "React-Native"].map((skill) => (
+              <Skill key={skill}>{skill}</Skill>
+            ))}
           </div>
         </div>
 
         <div className="mt-20">
-          <h3 className="mb-3 border-b pb-3 text-xl font-bold">History</h3>
+          <h4 className="mb-3 border-b pb-3 text-xl font-bold">History</h4>
           {HISTORYS.map((history) => (
             <Link
               href={history.link}
@@ -257,7 +254,7 @@ const AboutPage = () => {
         </div>
 
         <div className="mt-20">
-          <h3 className="mb-3 border-b pb-3 text-xl font-bold">Education</h3>
+          <h4 className="mb-3 border-b pb-3 text-xl font-bold">Education</h4>
           <Container>
             <h4 className="flex items-center gap-2 font-semibold">
               한양 사이버대학교 <span className="text-xs font-normal">(2023.03 ~ )</span>

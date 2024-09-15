@@ -13,7 +13,7 @@ const Document = () => {
         />
         <meta property="og:image" content="/asset/og_img.jpg" />
       </Head>
-      <body className="mx-auto max-w-2xl bg-[#fafaea] px-3 py-20 md:px-5">
+      <body className="mx-auto max-w-2xl bg-[#fafaea] px-3 py-10 md:px-5 md:py-20">
         <Main />
         <footer className="mt-40 text-center text-sm text-gray-600">
           @ 2024. <span className="font-bold text-black">Banal</span> All Rights Reserved.
