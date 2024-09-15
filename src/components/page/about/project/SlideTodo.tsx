@@ -96,7 +96,7 @@ const SlideTodo = () => {
         </Link>
       </div>
 
-      <div className="prose prose-sm max-w-none px-3 py-10 md:prose-base md:px-5">
+      <div className="prose prose-sm max-w-none px-3 py-10 md:prose-base prose-a:text-blue-500 prose-a:underline-offset-8 md:px-5">
         <h4>Tech Stack</h4>
         <ul>
           <li>Expo, React-Native, TanStack-Query, Zustand, Nativewind(TailWindCSS)</li>

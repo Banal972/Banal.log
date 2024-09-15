@@ -104,7 +104,12 @@ export const Dallem = () => {
 
         <h4>효율적인 리뷰 점수 시스템 개발</h4>
         <ul>
-          <li>함수형 프로그래밍 기법을 통해 가독성과 유지보수성을 높임</li>
+          <li>
+            <Link href={"/post/functional-programming-0912"} target="_blank">
+              함수형 프로그래밍 기법
+            </Link>
+            을 통해 가독성과 유지보수성을 높임
+          </li>
           <li>클린 코드 기반으로 가독성 높고 유지보수가 쉬운 클린 코드 작성</li>
         </ul>
 
