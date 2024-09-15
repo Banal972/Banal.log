@@ -3,32 +3,47 @@ import Link from "next/link"
 
 import { IoOpenOutline } from "react-icons/io5"
 
+import { Autoplay } from "swiper/modules"
+import { Swiper, SwiperSlide } from "swiper/react"
+
 const Gugumo = () => {
   return (
     <>
-      <div className="grid grid-cols-2">
-        <Image
-          src={"/asset/about/Gugumo/240905-083943.png"}
-          alt="인덱스"
-          width={0}
-          height={0}
-          className="h-auto w-full"
-        />
-        <Image
-          src={"/asset/about/Gugumo/240905-083952.png"}
-          alt="로그인"
-          width={0}
-          height={0}
-          className="h-auto w-full"
-        />
-        <Image
-          src={"/asset/about/Gugumo/240905-084024.png"}
-          alt="회원가입"
-          width={0}
-          height={0}
-          className="h-auto w-full"
-        />
-      </div>
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={30}
+        loop
+        autoplay={{ delay: 3000 }}
+        modules={[Autoplay]}
+      >
+        <SwiperSlide>
+          <Image
+            src={"/asset/about/Gugumo/240905-083943.png"}
+            alt="인덱스"
+            width={0}
+            height={0}
+            className="h-auto w-full"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Image
+            src={"/asset/about/Gugumo/240905-083952.png"}
+            alt="로그인"
+            width={0}
+            height={0}
+            className="h-auto w-full"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Image
+            src={"/asset/about/Gugumo/240905-084024.png"}
+            alt="회원가입"
+            width={0}
+            height={0}
+            className="h-auto w-full"
+          />
+        </SwiperSlide>
+      </Swiper>
 
       <div className="mt-5 flex items-center gap-3">
         <Link href="https://gugumo.vercel.app/" target="_blank">
@@ -44,15 +59,15 @@ const Gugumo = () => {
       </div>
 
       <div className="prose prose-sm max-w-none px-3 py-10 md:prose-base md:px-5">
-        <h3>Tech Stack</h3>
+        <h4>Tech Stack</h4>
         <ul>
           <li>Next.js(App), TanStack Query, TypeScript, React, Tailwind CSS, Next-Auth</li>
         </ul>
 
-        <h3>Role</h3>
+        <h4>Role</h4>
         <div className="rounded bg-gray-200 p-2 px-4">기획 및 클라이언트 페이지 개발</div>
 
-        <h3>주요 기능</h3>
+        <h4>주요 기능</h4>
         <ul>
           <li>원하는 구기종목 모임을 생성해서 자유롭게 참여</li>
           <li>해당 목록에 대한 댓글을 작성해 작성자와 대화 가능</li>
@@ -61,7 +76,7 @@ const Gugumo = () => {
           <li>비밀번호 찾기 시 변동된 패스워드가 메일로 발송</li>
         </ul>
 
-        <h3>검색 엔진 최적화</h3>
+        <h4>검색 엔진 최적화</h4>
         <ul>
           <li>Next.js의 APP router를 활용해 SSR기반으로 작성하여 검색엔진 최적화</li>
           <li>CSR환경에서도 meta tag를 동적으로 생성</li>

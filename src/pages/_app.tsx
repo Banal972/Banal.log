@@ -5,6 +5,7 @@ import Head from "next/head"
 import ProjectModalProvider from "@/provider/ProjectModalProvider"
 import dayjs from "dayjs"
 import "dayjs/locale/ko"
+import "swiper/css"
 
 import "./globals.css"
 
