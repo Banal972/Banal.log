@@ -130,11 +130,9 @@ const AboutPage = () => {
                 분리 및 로그인 UI 개선
               </p>
               <div className="mt-5 flex flex-wrap gap-2 text-sm">
-                <Skill>Next.js(App)</Skill>
-                <Skill>TypeScript</Skill>
-                <Skill>Next-auth</Skill>
-                <Skill>React</Skill>
-                <Skill>React-query</Skill>
+                {["Next.js(App)", "TypeScript", "React", "TanStack-Query"].map((skill) => (
+                  <Skill key={skill}>{skill}</Skill>
+                ))}
               </div>
             </Container>
 
@@ -155,10 +153,9 @@ const AboutPage = () => {
                 개설하고 리뷰를 생성할 수 있는 서비스입니다.
               </p>
               <div className="mt-5 flex flex-wrap gap-2 text-sm">
-                <Skill>Next.js(App)</Skill>
-                <Skill>TypeScript</Skill>
-                <Skill>React</Skill>
-                <Skill>React-query</Skill>
+                {["Next.js(App)", "TypeScript", "React", "TanStack-Query"].map((skill) => (
+                  <Skill key={skill}>{skill}</Skill>
+                ))}
               </div>
             </Container>
 
@@ -179,10 +176,9 @@ const AboutPage = () => {
                 어플리케이션 입니다.
               </p>
               <div className="mt-5 flex flex-wrap gap-2 text-sm">
-                <Skill>TypeScript</Skill>
-                <Skill>Expo</Skill>
-                <Skill>Zustand</Skill>
-                <Skill>NativeWind</Skill>
+                {["TypeScript", "Expo", "TanStack-Query", "Zustand", "NativeWind"].map((skill) => (
+                  <Skill key={skill}>{skill}</Skill>
+                ))}
               </div>
             </Container>
 
@@ -202,9 +198,9 @@ const AboutPage = () => {
                 심플하게 만들어 노트처럼 작성한 프론트엔드 개발자의 회고록 Banal.log
               </p>
               <div className="mt-5 flex flex-wrap gap-2 text-sm">
-                <Skill>Next.js(Pages)</Skill>
-                <Skill>TypeScript</Skill>
-                <Skill>React</Skill>
+                {["TypeScript", "Next.js(Pages)", "React"].map((skill) => (
+                  <Skill key={skill}>{skill}</Skill>
+                ))}
               </div>
             </Container>
 
@@ -222,10 +218,9 @@ const AboutPage = () => {
               </h4>
               <p className="mt-3 text-sm">동네 구기종목 매칭 서비스 구구모 입니다.</p>
               <div className="mt-5 flex flex-wrap gap-2 text-sm">
-                <Skill>Next.js(App)</Skill>
-                <Skill>TypeScript</Skill>
-                <Skill>React</Skill>
-                <Skill>React-query</Skill>
+                {["TypeScript", "Next.js(App)", "React", "TanStack-Query"].map((skill) => (
+                  <Skill key={skill}>{skill}</Skill>
+                ))}
               </div>
             </Container>
           </div>
@@ -234,11 +229,9 @@ const AboutPage = () => {
         <div className="mt-20">
           <h4 className="mb-3 border-b pb-3 text-xl font-bold">SKILL</h4>
           <div className="flex flex-wrap gap-3 text-sm">
-            <Skill>TypeScript</Skill>
-            <Skill>JavaScript</Skill>
-            <Skill>Next.js</Skill>
-            <Skill>React</Skill>
-            <Skill>React-Native</Skill>
+            {["TypeScript", "JavaScript", "Next.js", "React", "React-Native"].map((skill) => (
+              <Skill key={skill}>{skill}</Skill>
+            ))}
           </div>
         </div>
 

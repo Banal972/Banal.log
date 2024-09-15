@@ -70,7 +70,7 @@ const DallemR = () => {
       <div className="prose prose-sm max-w-none px-3 py-10 md:prose-base md:px-5">
         <h4>Tech Stack</h4>
         <ul>
-          <li>Next.js(App), TanStack Query, TypeScript, React, Tailwind CSS, Next-Auth</li>
+          <li>Next.js(App), TanStack-Query, TypeScript, React, Tailwind CSS</li>
         </ul>
 
         <h4>Role</h4>

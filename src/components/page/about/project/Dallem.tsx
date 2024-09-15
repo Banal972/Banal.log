@@ -61,7 +61,7 @@ export const Dallem = () => {
       <div className="prose prose-sm max-w-none px-3 py-10 md:prose-base prose-a:text-blue-500 prose-a:underline-offset-8 md:px-5">
         <h4>Tech Stack</h4>
         <ul>
-          <li>Next.js(App), TanStack Query, TypeScript, React, Tailwind CSS</li>
+          <li>Next.js(App), TanStack-Query, TypeScript, React, Tailwind CSS</li>
         </ul>
 
         <h4>주요 기능</h4>
