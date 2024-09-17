@@ -69,6 +69,7 @@ const BanalLog = () => {
           <li>기술 학습을 위해 Next.js Page route로 작업</li>
           <li>useSpring을 이용한 애니메이션</li>
           <li>마크다운 커스터마이징</li>
+          <li>Github Action을 이용한 자동 배포</li>
         </ul>
       </div>
     </>
