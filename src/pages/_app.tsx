@@ -6,6 +6,7 @@ import ProjectModalProvider from "@/provider/ProjectModalProvider"
 import dayjs from "dayjs"
 import "dayjs/locale/ko"
 import "swiper/css"
+import "swiper/css/pagination"
 
 import "./globals.css"
 
