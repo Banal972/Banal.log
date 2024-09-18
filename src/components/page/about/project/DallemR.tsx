@@ -3,56 +3,55 @@ import Link from "next/link"
 
 import { IoOpenOutline } from "react-icons/io5"
 
-import { Autoplay } from "swiper/modules"
+import useSwiperOptions from "@/hooks/useSwiperOptions"
 import { Swiper, SwiperSlide } from "swiper/react"
 
 const DallemR = () => {
+  const { swiperSetting, dotRef } = useSwiperOptions()
   return (
     <>
-      <Swiper
-        slidesPerView={1}
-        spaceBetween={30}
-        loop
-        autoplay={{ delay: 3000 }}
-        modules={[Autoplay]}
-      >
-        <SwiperSlide>
-          <Image
-            src="/asset/about/DallemR/240905-082620.png"
-            width={0}
-            height={0}
-            className="h-auto w-full"
-            alt="로그인"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src="/asset/about/Dallem/240905-081057.png"
-            width={0}
-            height={0}
-            className="h-auto w-full"
-            alt="메인"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src="/asset/about/Dallem/240905-081338.png"
-            width={0}
-            height={0}
-            className="h-auto w-full"
-            alt="모든 리뷰"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src="/asset/about/Dallem/240905-081524.png"
-            width={0}
-            height={0}
-            className="h-auto w-full"
-            alt="찜 목록"
-          />
-        </SwiperSlide>
-      </Swiper>
+      {swiperSetting && (
+        <Swiper {...swiperSetting}>
+          <SwiperSlide>
+            <Image
+              src="/asset/about/DallemR/240905-082620.png"
+              width={0}
+              height={0}
+              className="h-auto w-full"
+              alt="로그인"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Image
+              src="/asset/about/Dallem/240905-081057.png"
+              width={0}
+              height={0}
+              className="h-auto w-full"
+              alt="메인"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Image
+              src="/asset/about/Dallem/240905-081338.png"
+              width={0}
+              height={0}
+              className="h-auto w-full"
+              alt="모든 리뷰"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Image
+              src="/asset/about/Dallem/240905-081524.png"
+              width={0}
+              height={0}
+              className="h-auto w-full"
+              alt="찜 목록"
+            />
+          </SwiperSlide>
+        </Swiper>
+      )}
+
+      <ul ref={dotRef} className="mt-3 flex justify-center" />
 
       <div className="mt-5 flex items-center gap-3">
         <Link href="https://dallaem-refactoring-z35o.vercel.app/" target="_blank">

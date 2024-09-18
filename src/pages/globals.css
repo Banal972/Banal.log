@@ -5,3 +5,10 @@
 html {
   font-family: "Pretendard";
 }
+
+.swiper-pagination-bullet {
+  @apply size-[8px] cursor-pointer rounded-full bg-gray-600 !important;
+}
+.swiper-pagination-bullet-active {
+  @apply bg-black !important;
+}

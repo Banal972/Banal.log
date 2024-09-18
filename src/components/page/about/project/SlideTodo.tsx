@@ -1,84 +1,77 @@
 import Image from "next/image"
 import Link from "next/link"
 
+import { useEffect, useRef, useState } from "react"
 import { IoOpenOutline } from "react-icons/io5"
 
-import { Autoplay } from "swiper/modules"
-import { Swiper, SwiperSlide } from "swiper/react"
+import { Autoplay, Pagination } from "swiper/modules"
+import { Swiper, SwiperProps, SwiperSlide } from "swiper/react"
 
 const SlideTodo = () => {
+  const { swiperSetting, dotRef } = useSwiperOptions()
+
   return (
     <>
-      <Swiper
-        slidesPerView={1.5}
-        centeredSlides
-        spaceBetween={15}
-        loop
-        autoplay={{ delay: 3000 }}
-        modules={[Autoplay]}
-        breakpoints={{
-          821: {
-            slidesPerView: 3,
-            centeredSlides: false,
-            spaceBetween: 30,
-          },
-        }}
-      >
-        <SwiperSlide>
-          <Image
-            src={"/asset/about/SlideTodo/slidetodo_img01.png"}
-            alt="메인"
-            width={0}
-            height={0}
-            className="h-auto w-full"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src={"/asset/about/SlideTodo/slidetodo_img02.png"}
-            alt="회원가입"
-            width={0}
-            height={0}
-            className="h-auto w-full"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src={"/asset/about/SlideTodo/slidetodo_img03.png"}
-            alt="대시보드"
-            width={0}
-            height={0}
-            className="h-auto w-full"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src={"/asset/about/SlideTodo/slidetodo_img04.png"}
-            alt="메뉴"
-            width={0}
-            height={0}
-            className="h-auto w-full"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src={"/asset/about/SlideTodo/slidetodo_img05.png"}
-            alt="목표"
-            width={0}
-            height={0}
-            className="h-auto w-full"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src={"/asset/about/SlideTodo/slidetodo_img06.png"}
-            alt="노트"
-            width={0}
-            height={0}
-            className="h-auto w-full"
-          />
-        </SwiperSlide>
-      </Swiper>
+      {swiperSetting && (
+        <Swiper {...swiperSetting}>
+          <SwiperSlide>
+            <Image
+              src={"/asset/about/SlideTodo/slidetodo_img01.png"}
+              alt="메인"
+              width={0}
+              height={0}
+              className="h-auto w-full"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Image
+              src={"/asset/about/SlideTodo/slidetodo_img02.png"}
+              alt="회원가입"
+              width={0}
+              height={0}
+              className="h-auto w-full"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Image
+              src={"/asset/about/SlideTodo/slidetodo_img03.png"}
+              alt="대시보드"
+              width={0}
+              height={0}
+              className="h-auto w-full"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Image
+              src={"/asset/about/SlideTodo/slidetodo_img04.png"}
+              alt="메뉴"
+              width={0}
+              height={0}
+              className="h-auto w-full"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Image
+              src={"/asset/about/SlideTodo/slidetodo_img05.png"}
+              alt="목표"
+              width={0}
+              height={0}
+              className="h-auto w-full"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Image
+              src={"/asset/about/SlideTodo/slidetodo_img06.png"}
+              alt="노트"
+              width={0}
+              height={0}
+              className="h-auto w-full"
+            />
+          </SwiperSlide>
+        </Swiper>
+      )}
+
+      <ul ref={dotRef} className="mt-3 flex justify-center" />
 
       <div className="mt-2 flex items-center gap-3">
         <Link href="https://github.com/Banal972/todoapp" target="_blank">
@@ -138,3 +131,39 @@ const SlideTodo = () => {
 }
 
 export default SlideTodo
+
+const useSwiperOptions = () => {
+  const dotRef = useRef<HTMLUListElement>(null)
+  const [swiperSetting, setSwiperSetting] = useState<SwiperProps | null>(null)
+
+  useEffect(() => {
+    if (!swiperSetting) {
+      setSwiperSetting({
+        slidesPerView: 1.5,
+        centeredSlides: true,
+        spaceBetween: 15,
+        pagination: {
+          el: dotRef.current,
+          clickable: true,
+          renderBullet: (_, className: string) => {
+            return `<li class="${className}"/>`
+          },
+        },
+        autoplay: {
+          delay: 4500,
+        },
+        modules: [Autoplay, Pagination],
+        speed: 600,
+        loop: true,
+        breakpoints: {
+          821: {
+            slidesPerView: 3,
+            centeredSlides: false,
+            spaceBetween: 30,
+          },
+        },
+      })
+    }
+  }, [swiperSetting])
+  return { swiperSetting, dotRef }
+}

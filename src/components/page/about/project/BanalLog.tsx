@@ -3,47 +3,47 @@ import Link from "next/link"
 
 import { IoOpenOutline } from "react-icons/io5"
 
-import { Autoplay } from "swiper/modules"
+import useSwiperOptions from "@/hooks/useSwiperOptions"
 import { Swiper, SwiperSlide } from "swiper/react"
 
 const BanalLog = () => {
+  const { swiperSetting, dotRef } = useSwiperOptions()
+
   return (
     <>
-      <Swiper
-        slidesPerView={1}
-        spaceBetween={30}
-        loop
-        autoplay={{ delay: 3000 }}
-        modules={[Autoplay]}
-      >
-        <SwiperSlide>
-          <Image
-            src="/asset/about/BanalLog/240905-081822.png"
-            width={0}
-            height={0}
-            className="h-auto w-full"
-            alt="메인"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src="/asset/about/BanalLog/240905-081834.png"
-            width={0}
-            height={0}
-            className="h-auto w-full"
-            alt="리스트"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src="/asset/about/BanalLog/240905-081846.png"
-            width={0}
-            height={0}
-            className="h-auto w-full"
-            alt="글"
-          />
-        </SwiperSlide>
-      </Swiper>
+      {swiperSetting && (
+        <Swiper {...swiperSetting}>
+          <SwiperSlide>
+            <Image
+              src="/asset/about/BanalLog/240905-081822.png"
+              width={0}
+              height={0}
+              className="h-auto w-full"
+              alt="메인"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Image
+              src="/asset/about/BanalLog/240905-081834.png"
+              width={0}
+              height={0}
+              className="h-auto w-full"
+              alt="리스트"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Image
+              src="/asset/about/BanalLog/240905-081846.png"
+              width={0}
+              height={0}
+              className="h-auto w-full"
+              alt="글"
+            />
+          </SwiperSlide>
+        </Swiper>
+      )}
+
+      <ul ref={dotRef} className="mt-3 flex justify-center" />
 
       <div className="mt-5 flex items-center gap-3">
         <Link href="https://banal972.github.io/" target="_blank">

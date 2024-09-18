@@ -3,47 +3,47 @@ import Link from "next/link"
 
 import { IoOpenOutline } from "react-icons/io5"
 
-import { Autoplay } from "swiper/modules"
+import useSwiperOptions from "@/hooks/useSwiperOptions"
 import { Swiper, SwiperSlide } from "swiper/react"
 
 const Gugumo = () => {
+  const { swiperSetting, dotRef } = useSwiperOptions()
+
   return (
     <>
-      <Swiper
-        slidesPerView={1}
-        spaceBetween={30}
-        loop
-        autoplay={{ delay: 3000 }}
-        modules={[Autoplay]}
-      >
-        <SwiperSlide>
-          <Image
-            src={"/asset/about/Gugumo/240905-083943.png"}
-            alt="인덱스"
-            width={0}
-            height={0}
-            className="h-auto w-full"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src={"/asset/about/Gugumo/240905-083952.png"}
-            alt="로그인"
-            width={0}
-            height={0}
-            className="h-auto w-full"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src={"/asset/about/Gugumo/240905-084024.png"}
-            alt="회원가입"
-            width={0}
-            height={0}
-            className="h-auto w-full"
-          />
-        </SwiperSlide>
-      </Swiper>
+      {swiperSetting && (
+        <Swiper {...swiperSetting}>
+          <SwiperSlide>
+            <Image
+              src={"/asset/about/Gugumo/240905-083943.png"}
+              alt="인덱스"
+              width={0}
+              height={0}
+              className="h-auto w-full"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Image
+              src={"/asset/about/Gugumo/240905-083952.png"}
+              alt="로그인"
+              width={0}
+              height={0}
+              className="h-auto w-full"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Image
+              src={"/asset/about/Gugumo/240905-084024.png"}
+              alt="회원가입"
+              width={0}
+              height={0}
+              className="h-auto w-full"
+            />
+          </SwiperSlide>
+        </Swiper>
+      )}
+
+      <ul ref={dotRef} className="mt-3 flex justify-center" />
 
       <div className="mt-5 flex items-center gap-3">
         <Link href="https://gugumo.vercel.app/" target="_blank">
