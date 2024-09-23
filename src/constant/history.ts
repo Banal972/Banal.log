@@ -24,7 +24,7 @@ const HISTORYS = [
     name: "2024 오픈소스 컨트리뷰션 아카데미 [체험형-2차]",
     organization: "Open UP",
     date: "2024-09 ~ 진행중",
-    link: "https://www.contribution.ac/",
+    link: "https://github.com/ant-design-korea/ant-design",
   },
 ]
 

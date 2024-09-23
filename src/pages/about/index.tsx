@@ -47,14 +47,22 @@ const AboutPage = () => {
           </div>
         </div>
 
-        <div className="mt-10 border-t pt-5">
-          <p className="text-sm">
-            누구에게나 자신 있게 추천할 수 있는 뛰어난 제품을 개발하는 것을 목표로 하고 있으며, 좋은
-            제품을 만들기 위해 적극적으로 커뮤니케이션을 하고 있습니다.
-            <br /> 좋은 습관을 가진 개발자가 되기 위해서 배운것을 꾸준히 기록하며, 원리를 이해하고
-            실용적으로 개발 할 수 있게 항상 노력하고 있습니다.
-          </p>
-        </div>
+        <ul className="mt-10 border-t pt-5 text-sm">
+          <li className="flex items-center gap-2 before:block before:size-1 before:rounded-full before:bg-gray-700">
+            자연스러운 인터랙티브 애니메이션 구현에 자신이 있으며 사용자 경험 향상에 관심이
+            있습니다.
+          </li>
+          <li className="mt-1 flex items-center gap-2 before:block before:size-1 before:rounded-full before:bg-gray-700">
+            지속적으로 성장하며 최신 트렌드를 주시하고 있습니다.
+          </li>
+          <li className="mt-1 flex items-center gap-2 before:block before:size-1 before:rounded-full before:bg-gray-700">
+            함수형 프로그래밍과 싱글턴 패턴등 효율적인 프로그래밍 패턴에 관심이 많습니다.
+          </li>
+          <li className="mt-1 flex items-center gap-2 before:block before:size-1 before:rounded-full before:bg-gray-700">
+            이를 바탕으로 사용자 경험, 프로젝트의 완성도, 시스템 효율성을 개선하기 위해 노력하고
+            있습니다.
+          </li>
+        </ul>
 
         <div className="mt-20">
           <h4 className="mb-3 border-b pb-3 text-xl font-bold">Work Experience</h4>
@@ -130,9 +138,11 @@ const AboutPage = () => {
                 분리 및 로그인 UI 개선
               </p>
               <div className="mt-5 flex flex-wrap gap-2 text-sm">
-                {["Next.js(App)", "TypeScript", "React", "TanStack-Query"].map((skill) => (
-                  <Skill key={skill}>{skill}</Skill>
-                ))}
+                {["Next.js(App)", "TypeScript", "React", "TanStack-Query", "Tailwind CSS"].map(
+                  (skill) => (
+                    <Skill key={skill}>{skill}</Skill>
+                  ),
+                )}
               </div>
             </Container>
 
@@ -176,7 +186,14 @@ const AboutPage = () => {
                 어플리케이션 입니다.
               </p>
               <div className="mt-5 flex flex-wrap gap-2 text-sm">
-                {["TypeScript", "Expo", "TanStack-Query", "Zustand", "NativeWind"].map((skill) => (
+                {[
+                  "TypeScript",
+                  "Expo",
+                  "React-Native",
+                  "TanStack-Query",
+                  "Zustand",
+                  "NativeWind",
+                ].map((skill) => (
                   <Skill key={skill}>{skill}</Skill>
                 ))}
               </div>
