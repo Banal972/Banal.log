@@ -80,7 +80,8 @@ export const Dallem = () => {
         <h4>메인 페이지 UI 개선</h4>
         <ul>
           <li>
-            기존 디자인이 사용자 경험이 떨어지는것 같아 디자인을 하여 UI를 개선
+            유저 피드백에서 메인 페이지의 사용자 경험이 떨어진다는 피드백을 받아 디자인을 수정 하여
+            UI를 개선
             <div className="shadow-lg">
               <Image
                 src={"/asset/about/Dallem/group.png"}

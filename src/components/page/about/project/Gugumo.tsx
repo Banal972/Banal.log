@@ -81,6 +81,13 @@ const Gugumo = () => {
           <li>Next.js의 APP router를 활용해 SSR기반으로 작성하여 검색엔진 최적화</li>
           <li>CSR환경에서도 meta tag를 동적으로 생성</li>
         </ul>
+
+        <h4>프로그래시브 웹 앱(PWA)</h4>
+        <ul>
+          <li>
+            PWA 기반으로 작성하여 웹뿐만 아니라 모바일에서도 앱처럼 작동 할 수 있게 구현 하였습니다.
+          </li>
+        </ul>
       </div>
     </>
   )
