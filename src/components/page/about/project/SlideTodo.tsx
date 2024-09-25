@@ -80,7 +80,7 @@ const SlideTodo = () => {
           </div>
         </Link>
         <Link
-          href="https://drive.google.com/file/d/1MxiEP_s4-YkMzo78PCywU5rIx1rHkIsT/view?usp=sharing"
+          href="https://github.com/Banal972/SlideTodo/releases/tag/v1.0.0"
           target="_blank"
         >
           <div className="flex items-center gap-2 rounded-md border px-3 py-1 font-bold transition-colors hover:bg-black hover:text-white">
