@@ -2,6 +2,7 @@ import Link from "next/link"
 
 import { IoCalendarClearOutline } from "react-icons/io5"
 
+import { Post } from "@/types/post.type"
 import { animated, useTrail } from "@react-spring/web"
 
 const Lists = ({ data }: { data: Post[] }) => {
