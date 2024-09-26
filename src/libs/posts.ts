@@ -1,3 +1,4 @@
+import { Post, PostMatter } from "@/types/post.type"
 import dayjs from "dayjs"
 import fs from "fs"
 import { sync } from "glob"

@@ -1,6 +1,7 @@
 import PrevBtn from "@/components/common/PrevBtn"
 import Lists from "@/components/page/category/List"
 import { getAllPosts } from "@/libs/posts"
+import { Post } from "@/types/post.type"
 import dayjs from "dayjs"
 import isBetween from "dayjs/plugin/isBetween"
 
