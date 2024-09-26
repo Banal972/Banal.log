@@ -115,8 +115,17 @@ const PostPage = ({ post, mdx }: { post: Post; mdx: MDXRemoteSerializeResult; to
   const router = useRouter()
 
   const prevHandler = () => {
-    if (window.history.length > 1) return router.back()
-    router.push("/")
+    if (post.tags.includes("지식창고")) {
+      return router.push("/discover")
+    }
+
+    if (post.tags.includes("블로그")) {
+      return router.push("/blog")
+    }
+
+    if (post.tags.includes("코딩 테스트")) {
+      return router.push("/question")
+    }
   }
 
   return (
