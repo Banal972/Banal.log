@@ -8,6 +8,7 @@ import { useEffect, useState } from "react"
 import { IoCalendarClearOutline, IoTimeOutline } from "react-icons/io5"
 
 import { getAllPosts } from "@/libs/posts"
+import { Post } from "@/types/post.type"
 import Giscus from "@giscus/react"
 import rehypeAutolinkHeadings from "rehype-autolink-headings"
 import rehypePrettyCode from "rehype-pretty-code"
