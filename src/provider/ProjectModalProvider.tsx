@@ -1,31 +1,5 @@
 import { ReactNode, createContext, useContext, useState } from "react"
 
-type ProjectModalContextData = {
-  title: string
-  date: string
-}
-
-type ProjectModalState = {
-  isOpen: boolean
-  data?: ProjectModalContextData
-  modalContent?: ReactNode
-}
-
-type ProjectModalProvider = {
-  openModal: ({
-    data,
-    modalContent,
-  }: {
-    data: ProjectModalContextData
-    modalContent?: ReactNode
-  }) => void
-  closeModal: () => void
-}
-
-interface ProjectContextType extends ProjectModalProvider {
-  modalState: ProjectModalState
-}
-
 const ProjectModalContext = createContext<ProjectContextType>({
   modalState: {
     isOpen: false,
@@ -34,7 +8,7 @@ const ProjectModalContext = createContext<ProjectContextType>({
   closeModal: () => {},
 })
 
-const ProjectModalProvider = ({ children }: { children: ReactNode }) => {
+const ProjectModalProvider = ({ children }: DeafultType) => {
   const [modalState, setModalState] = useState<ProjectModalState>({
     isOpen: false,
   })
@@ -62,3 +36,33 @@ const ProjectModalProvider = ({ children }: { children: ReactNode }) => {
 export const useProjectModal = () => useContext(ProjectModalContext)
 
 export default ProjectModalProvider
+
+type DeafultType = {
+  children: ReactNode
+}
+
+type ProjectModalContextData = {
+  title: string
+  date: string
+}
+
+type ProjectModalState = {
+  isOpen: boolean
+  data?: ProjectModalContextData
+  modalContent?: ReactNode
+}
+
+type ProjectModalProvider = {
+  openModal: ({
+    data,
+    modalContent,
+  }: {
+    data: ProjectModalContextData
+    modalContent?: ReactNode
+  }) => void
+  closeModal: () => void
+}
+
+interface ProjectContextType extends ProjectModalProvider {
+  modalState: ProjectModalState
+}
