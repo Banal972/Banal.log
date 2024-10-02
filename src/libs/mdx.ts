@@ -6,8 +6,8 @@ import remarkBreaks from "remark-breaks"
 import remarkGfm from "remark-gfm"
 import remarkToc from "remark-toc"
 
-export const serializeMdx = async (source: string) => {
-  return serialize(source, {
+export const serializeMdx = async (source: string) =>
+  serialize(source, {
     mdxOptions: {
       remarkPlugins: [
         remarkGfm,
@@ -33,4 +33,3 @@ export const serializeMdx = async (source: string) => {
       format: "mdx",
     },
   })
-}
