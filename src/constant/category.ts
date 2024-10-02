@@ -43,7 +43,7 @@ const MAINCATEGORYS = [
   },
   {
     href: "/discover",
-    category: "지식창고",
+    category: "TIL",
     label: "새로운 지식을 얻고 정리한곳",
   },
   {

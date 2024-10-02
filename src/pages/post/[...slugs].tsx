@@ -21,7 +21,7 @@ const PostPage = ({ post, mdx }: PostPageState) => {
   const router = useRouter()
 
   const prevHandler = () => {
-    if (post.tags.includes("지식창고")) {
+    if (post.tags.includes("TIL")) {
       return router.push("/discover")
     }
 

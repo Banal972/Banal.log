@@ -11,7 +11,7 @@ dayjs.extend(isBetween)
 const DiscoverPage = ({ posts }: { posts: [string, Post[]][] }) => {
   return (
     <main>
-      <Title>지식창고</Title>
+      <Title>TIL</Title>
       <p className="mt-5 text-sm">
         프로젝트를 진행하면서 새로운 지식을 얻은것을 정리하는 곳 입니다.
       </p>
@@ -35,7 +35,7 @@ export default DiscoverPage
 
 export const getStaticProps = async () => {
   const posts = getAllPosts().reduce<{ [year: number]: Post[] }>((ac, cur) => {
-    if (cur.tags && cur.tags.includes("지식창고")) {
+    if (cur.tags && cur.tags.includes("TIL")) {
       const year = dayjs(cur.date).year()
       if (!ac[year]) {
         ac[year] = []
