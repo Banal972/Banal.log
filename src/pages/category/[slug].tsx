@@ -62,8 +62,11 @@ export const getStaticPaths = () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params as { slug: string }
 
+  /* 
+  // 명령형
   const posts = getAllPosts().reduce<{ [year: number]: Post[] }>((ac, cur) => {
     if (cur.tags && cur.tags.includes(CATEGORYS[slug].title)) {
+      // 이 if문을 filter로 바꿀수 있음
       const year = dayjs(cur.date).year()
       if (!ac[year]) {
         ac[year] = []
@@ -71,19 +74,39 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       ac[year].push(cur)
     }
     return ac
-  }, {})
+  }, {}) 
 
-  // 각 연도 내에서 날짜 기준으로 역순 정렬
+    // 각 연도 내에서 날짜 기준으로 역순 정렬
   Object.keys(posts).forEach((year) => {
-    posts[Number(year)].sort((a, b) => dayjs(b.date).valueOf() - dayjs(a.date).valueOf())
+    posts[Number(year)].sort((a, b) => dayjs(b.date).valueOf() - dayjs(a.date).valueOf()) // map으로 바꿀수 있음
   })
 
   // 연도별로 역순 정렬
   const desc = Object.entries(posts).sort((a, b) => Number(b[0]) - Number(a[0]))
 
+  */
+
+  // 함수형
+  const posts = getAllPosts()
+    .filter((post) => post.tags.includes(CATEGORYS[slug].title))
+    .reduce<{ [year: number]: Post[] }>((ac, cur) => {
+      const year = dayjs(cur.date).year()
+      return {
+        ...ac,
+        [year]: [...(ac[year] || []), cur],
+      }
+    }, {})
+
+  const sortedPosts = Object.entries(posts)
+    .map(([year, posts]) => [
+      year,
+      posts.sort((a, b) => dayjs(b.date).valueOf() - dayjs(a.date).valueOf()),
+    ])
+    .sort(([a], [b]) => Number(b) - Number(a))
+
   return {
     props: {
-      posts: desc,
+      posts: sortedPosts,
       fallback: false,
     },
   }
