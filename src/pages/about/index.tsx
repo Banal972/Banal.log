@@ -14,12 +14,13 @@ import Gugumo from "@/components/page/about/project/Gugumo"
 import SlideTodo from "@/components/page/about/project/SlideTodo"
 import { HISTORYS } from "@/constant/history"
 import { useProjectModal } from "@/provider/ProjectModalProvider"
+import MainLayout from "@/ui/MainLayout"
 
 const AboutPage = () => {
   const { openModal } = useProjectModal()
 
   return (
-    <>
+    <MainLayout>
       <main>
         <div className="flex items-center justify-between">
           <div>
@@ -281,7 +282,7 @@ const AboutPage = () => {
         </div>
       </main>
       <ProjectModal />
-    </>
+    </MainLayout>
   )
 }
 

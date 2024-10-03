@@ -9,6 +9,7 @@ import { IoCalendarClearOutline, IoTimeOutline } from "react-icons/io5"
 
 import { getAllPosts } from "@/libs/posts"
 import { Post } from "@/types/post.type"
+import MainLayout from "@/ui/MainLayout"
 import Giscus from "@giscus/react"
 import rehypeAutolinkHeadings from "rehype-autolink-headings"
 import rehypePrettyCode from "rehype-pretty-code"
@@ -22,20 +23,20 @@ const PostPage = ({ post, mdx }: PostPageState) => {
 
   const prevHandler = () => {
     if (post.tags.includes("TIL")) {
-      return router.push("/discover")
+      return router.push("/category/discover")
     }
 
     if (post.tags.includes("블로그")) {
-      return router.push("/blog")
+      return router.push("/category/blog")
     }
 
     if (post.tags.includes("코딩 테스트")) {
-      return router.push("/question")
+      return router.push("/category/question")
     }
   }
 
   return (
-    <>
+    <MainLayout>
       <Head>
         <title>{`Banal.log | ${post.title}`}</title>
       </Head>
@@ -64,7 +65,7 @@ const PostPage = ({ post, mdx }: PostPageState) => {
 
           <div className="mt-3">
             <button
-              className="rounded-lg bg-[#d7d780] px-2 py-[2px] text-sm font-bold text-black"
+              className="rounded-lg bg-green-200 px-3 py-1 text-xs font-bold text-black transition-colors hover:bg-green-300"
               onClick={prevHandler}
             >
               이전으로
@@ -91,7 +92,7 @@ const PostPage = ({ post, mdx }: PostPageState) => {
           lang="ko"
         />
       </div>
-    </>
+    </MainLayout>
   )
 }
 
