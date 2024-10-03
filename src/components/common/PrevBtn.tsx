@@ -2,7 +2,7 @@ import Link from "next/link"
 
 import { ReactNode } from "react"
 
-const PrevBtn = ({ link, children }: { link: string; children: ReactNode }) => {
+const PrevBtn = ({ link, children }: PrevBtnState) => {
   return (
     <Link
       href={link}
@@ -14,3 +14,5 @@ const PrevBtn = ({ link, children }: { link: string; children: ReactNode }) => {
 }
 
 export default PrevBtn
+
+type PrevBtnState = { link: string; children: ReactNode }

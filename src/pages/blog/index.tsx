@@ -8,7 +8,7 @@ import isBetween from "dayjs/plugin/isBetween"
 
 dayjs.extend(isBetween)
 
-const BlogPage = ({ posts }: { posts: [string, Post[]][] }) => {
+const BlogPage = ({ posts }: CategoryPageState) => {
   return (
     <main>
       <Title>Blog</Title>

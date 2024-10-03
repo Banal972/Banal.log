@@ -1,13 +1,5 @@
 import { ReactNode, createContext, useContext, useState } from "react"
 
-const ProjectModalContext = createContext<ProjectContextType>({
-  modalState: {
-    isOpen: false,
-  },
-  openModal: () => {},
-  closeModal: () => {},
-})
-
 const ProjectModalProvider = ({ children }: DeafultType) => {
   const [modalState, setModalState] = useState<ProjectModalState>({
     isOpen: false,
@@ -34,8 +26,15 @@ const ProjectModalProvider = ({ children }: DeafultType) => {
 }
 
 export const useProjectModal = () => useContext(ProjectModalContext)
-
 export default ProjectModalProvider
+
+const ProjectModalContext = createContext<ProjectContextType>({
+  modalState: {
+    isOpen: false,
+  },
+  openModal: () => {},
+  closeModal: () => {},
+})
 
 type DeafultType = {
   children: ReactNode
