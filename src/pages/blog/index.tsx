@@ -3,6 +3,9 @@ import { Title } from "@/components/common/Title"
 import Lists from "@/components/page/category/List"
 import { getAllPosts } from "@/libs/posts"
 import { Post } from "@/types/post.type"
+import CategoryLayout from "@/ui/CategoryLayout"
+import Footer from "@/ui/Footer"
+import MainLayout from "@/ui/MainLayout"
 import dayjs from "dayjs"
 import isBetween from "dayjs/plugin/isBetween"
 
@@ -10,22 +13,25 @@ dayjs.extend(isBetween)
 
 const BlogPage = ({ posts }: CategoryPageState) => {
   return (
-    <main>
-      <Title>Blog</Title>
-      <p className="mt-5 text-sm">지나온 일들을 회고한 기록들 입니다.</p>
-      <div className="mt-2 flex flex-wrap gap-3 text-xs">
-        <PrevBtn link="/">되돌아가기</PrevBtn>
-        <PrevBtn link="/discover">TIL</PrevBtn>
-        <PrevBtn link="/question">코딩 테스트</PrevBtn>
-      </div>
-
-      {posts.map((post) => (
-        <div key={post[0]} className="mt-10 flex gap-5 border-t py-5">
-          <p>{post[0]}</p>
-          <Lists data={post[1]} />
+    <MainLayout>
+      <main>
+        <Title>Blog</Title>
+        <p className="mt-5 text-sm">지나온 일들을 회고한 기록들 입니다.</p>
+        <div className="mt-2 flex flex-wrap gap-3 text-xs">
+          <PrevBtn link="/">되돌아가기</PrevBtn>
+          <PrevBtn link="/discover">TIL</PrevBtn>
+          <PrevBtn link="/question">코딩 테스트</PrevBtn>
         </div>
-      ))}
-    </main>
+
+        {posts.map((post) => (
+          <div key={post[0]} className="mt-10 flex gap-5 border-t py-5">
+            <p>{post[0]}</p>
+            <Lists data={post[1]} />
+          </div>
+        ))}
+      </main>
+      <Footer />
+    </MainLayout>
   )
 }
 

@@ -9,6 +9,7 @@ import { IoCalendarClearOutline, IoTimeOutline } from "react-icons/io5"
 
 import { getAllPosts } from "@/libs/posts"
 import { Post } from "@/types/post.type"
+import MainLayout from "@/ui/MainLayout"
 import Giscus from "@giscus/react"
 import rehypeAutolinkHeadings from "rehype-autolink-headings"
 import rehypePrettyCode from "rehype-pretty-code"
@@ -35,7 +36,7 @@ const PostPage = ({ post, mdx }: PostPageState) => {
   }
 
   return (
-    <>
+    <MainLayout>
       <Head>
         <title>{`Banal.log | ${post.title}`}</title>
       </Head>
@@ -91,7 +92,7 @@ const PostPage = ({ post, mdx }: PostPageState) => {
           lang="ko"
         />
       </div>
-    </>
+    </MainLayout>
   )
 }
 

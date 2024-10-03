@@ -14,14 +14,13 @@ const Document = () => {
         />
         <meta property="og:image" content="/asset/og_img.jpg" />
       </Head>
-      <body className="mx-auto max-w-2xl px-3 py-10 md:px-5 md:py-20">
+      <body>
         <Main />
-        <footer className="mt-40 text-center text-sm text-gray-600">
-          @ 2024. <span className="font-bold text-black">Banal</span> All Rights Reserved.
-        </footer>
         <NextScript />
       </body>
     </Html>
   )
 }
 export default Document
+
+// mx-auto max-w-2xl px-3 md:px-5
