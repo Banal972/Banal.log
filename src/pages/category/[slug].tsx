@@ -1,3 +1,4 @@
+import { GetStaticProps } from "next"
 import { useRouter } from "next/router"
 
 import PrevBtn from "@/components/common/PrevBtn"
@@ -16,12 +17,36 @@ const CategoryPage = ({ posts }: CategoryPageState) => {
   return (
     <CategoryLayout>
       <main>
-        <Title>Blog</Title>
-        <p className="mt-5 text-sm">지나온 일들을 회고한 기록들 입니다.</p>
+        <Title>
+          {slug === "blog" && "Blog"}
+          {slug === "til" && "TIL"}
+          {slug === "cote" && "코딩 테스트"}
+        </Title>
+        <p className="mt-5 text-sm">
+          {slug === "blog" && "지나온 일들을 회고한 기록들 입니다"}
+          {slug === "til" && "프로젝트를 진행하면서 새로운 지식을 얻은것을 정리하는 곳 입니다."}
+          {slug === "cote" && "코딩 테스트 문제를 풀이하는 시간을 갖는 공간 입니다."}.
+        </p>
         <div className="mt-2 flex flex-wrap gap-3 text-xs">
           <PrevBtn link="/">되돌아가기</PrevBtn>
-          <PrevBtn link="/discover">TIL</PrevBtn>
-          <PrevBtn link="/question">코딩 테스트</PrevBtn>
+          {slug === "blog" && (
+            <>
+              <PrevBtn link="/category/til">TIL</PrevBtn>
+              <PrevBtn link="/category/cote">코딩 테스트</PrevBtn>
+            </>
+          )}
+          {slug === "til" && (
+            <>
+              <PrevBtn link="/category/blog">블로그</PrevBtn>
+              <PrevBtn link="/category/cote">코딩 테스트</PrevBtn>
+            </>
+          )}
+          {slug === "cote" && (
+            <>
+              <PrevBtn link="/category/blog">블로그</PrevBtn>
+              <PrevBtn link="/category/til">TIL</PrevBtn>
+            </>
+          )}
         </div>
 
         {posts.map((post) => (
@@ -38,19 +63,22 @@ const CategoryPage = ({ posts }: CategoryPageState) => {
 export default CategoryPage
 
 export const getStaticPaths = () => {
-  const category = CATEGORYS.reduce(
-    (prev: string[], category) => [...prev, `/category/${category.link}`],
+  const categoryPath = Object.keys(CATEGORYS).reduce(
+    (prev: string[], key) => [...prev, `/category/${key}`],
     [],
   )
+
   return {
-    paths: category,
+    paths: categoryPath,
     fallback: false,
   }
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { slug } = params as { slug: string }
+
   const posts = getAllPosts().reduce<{ [year: number]: Post[] }>((ac, cur) => {
-    if (cur.tags && cur.tags.includes("블로그")) {
+    if (cur.tags && cur.tags.includes(CATEGORYS[slug].title)) {
       const year = dayjs(cur.date).year()
       if (!ac[year]) {
         ac[year] = []
@@ -67,8 +95,6 @@ export const getStaticProps = async () => {
 
   // 연도별로 역순 정렬
   const desc = Object.entries(posts).sort((a, b) => Number(b[0]) - Number(a[0]))
-
-  console.log(desc)
 
   return {
     props: {

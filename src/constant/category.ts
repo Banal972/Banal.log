@@ -16,33 +16,30 @@ export const MAINCATEGORYS = [
   },
 ]
 
-export const CATEGORYS = [
-  {
+export const CATEGORYS: { [key: string]: any } = {
+  blog: {
     title: "블로그",
-    link: "blog",
     subItems: [
       { title: "단기심화 스프린트", link: "sprint" },
       { title: "멘토링", link: "mento" },
     ],
   },
-  {
+  cote: {
     title: "코딩 테스트",
-    link: "cote",
     subItems: [
       { title: "백준", link: "backjoon" },
       { title: "프로그래머스", link: "programmers" },
     ],
   },
-  {
+  til: {
     title: "TIL",
-    link: "til",
     subItems: [
       { title: "React", link: "react" },
       { title: "NextJS", link: "nextjs" },
       { title: "React Native", link: "native" },
     ],
   },
-]
+}
 
 /* 
   {
