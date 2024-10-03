@@ -4,7 +4,6 @@ import { IoLogoGithub, IoMail } from "react-icons/io5"
 
 import { MAINCATEGORYS } from "@/constant/category"
 import useFadeIn from "@/hooks/animation/useFadeIn"
-import Footer from "@/ui/Footer"
 import MainLayout from "@/ui/MainLayout"
 import { animated, useChain, useSpringRef, useTrail } from "@react-spring/web"
 
@@ -39,7 +38,7 @@ const IndexPage = () => {
         <animated.p style={fadeProps1} className="mt-5 text-sm">
           사용자가 불편함이 없이 상호작용 하고, 복잡한것을 단순화 하는것을 좋아하며
           <br />
-          다양한 직군과 소통, 피드백을 받는 것에 재미를 느끼고 틈틈이 기록합니다.
+          사용자 경험, 프로젝트의 완성도, 시스템 효율성을 개선하기 위해 틈틈이 기록하고 있습니다.
         </animated.p>
 
         <animated.div style={fadeProps2} className="mt-20 flex gap-5">
@@ -63,7 +62,6 @@ const IndexPage = () => {
           </ul>
         </div>
       </main>
-      <Footer />
     </MainLayout>
   )
 }

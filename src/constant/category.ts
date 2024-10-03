@@ -19,17 +19,16 @@ export const MAINCATEGORYS = [
 export const CATEGORYS: { [key: string]: any } = {
   blog: {
     title: "블로그",
-    subItems: [
-      { title: "단기심화 스프린트", link: "sprint" },
-      { title: "멘토링", link: "mento" },
-    ],
+    subItems: [],
   },
   discover: {
     title: "TIL",
     subItems: [
+      { title: "함수형 프로그래밍", link: "functional-programming" },
       { title: "React", link: "react" },
       { title: "NextJS", link: "nextjs" },
       { title: "React Native", link: "native" },
+      { title: "구구모", link: "gogomu" },
     ],
   },
   question: {
@@ -40,15 +39,3 @@ export const CATEGORYS: { [key: string]: any } = {
     ],
   },
 }
-
-/* 
-  {
-    title: "프로젝트",
-    link: "/category/project",
-    subItems: [
-      { title: "같이달램", link: "dallem" },
-      { title: "구구모", link: "gogomu" },
-      { title: "슬라이드투두", link: "todo" },
-    ],
-  },
-*/

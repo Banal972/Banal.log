@@ -14,7 +14,6 @@ import Gugumo from "@/components/page/about/project/Gugumo"
 import SlideTodo from "@/components/page/about/project/SlideTodo"
 import { HISTORYS } from "@/constant/history"
 import { useProjectModal } from "@/provider/ProjectModalProvider"
-import Footer from "@/ui/Footer"
 import MainLayout from "@/ui/MainLayout"
 
 const AboutPage = () => {
@@ -282,7 +281,6 @@ const AboutPage = () => {
           </Container>
         </div>
       </main>
-      <Footer />
       <ProjectModal />
     </MainLayout>
   )

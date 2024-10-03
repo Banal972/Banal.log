@@ -14,7 +14,7 @@ const Document = () => {
         />
         <meta property="og:image" content="/asset/og_img.jpg" />
       </Head>
-      <body>
+      <body className="bg-slate-50">
         <Main />
         <NextScript />
       </body>

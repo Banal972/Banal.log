@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { useRouter } from "next/router"
 
-import { ReactNode } from "react"
+import { ReactNode, useEffect } from "react"
 
 import Footer from "@/ui/Footer"
 
@@ -10,14 +10,14 @@ const CategoryLayout = ({ children }: { children: ReactNode }) => {
     query: { slug },
   } = useRouter()
 
-  console.log(slug)
+  useEffect(() => {}, [slug])
 
   return (
     <div className="relative flex">
-      <div className="absolute left-0 top-0 min-h-screen w-48 border-r bg-white px-3 py-5 md:relative">
+      <div className="absolute left-0 top-0 z-20 min-h-screen w-48 border-r bg-white px-3 py-5 md:relative">
         <ul className="text-lg">
           <li>
-            <Link href={""} className="block">
+            <Link href={`/category/${slug}`} className="block">
               All
             </Link>
             <ul className="ml-3 text-base">
