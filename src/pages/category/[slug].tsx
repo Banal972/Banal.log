@@ -82,7 +82,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   })
 
   // 연도별로 역순 정렬
-  const desc = Object.entries(posts).sort((a, b) => Number(b[0]) - Number(a[0]))
+  const desc = Object.entries(posts).sort((a, b) => Number(b[0]) - Number(a[0])) // map으로 변환한것에 sort로 하나 압축 가능
 
   */
 
