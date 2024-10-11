@@ -35,17 +35,13 @@ const IndexPage = () => {
             </Link>
           </div>
         </div>
+
         <animated.p style={fadeProps1} className="mt-5 text-sm">
           사용자가 불편함이 없이 상호작용 하고, 복잡한것을 단순화 하는것을 좋아하며
           <br />
           사용자 경험, 프로젝트의 완성도, 시스템 효율성을 개선하기 위해 틈틈이 기록하고 있습니다.
         </animated.p>
 
-        <animated.div style={fadeProps2} className="mt-20 flex gap-5">
-          <Link href="/about" className="font-bold">
-            About
-          </Link>
-        </animated.div>
         <div className="mt-6 flex flex-col gap-5 border-t pt-6 md:flex-row">
           <animated.p style={fadeProps3} className="font-bold">
             Category
