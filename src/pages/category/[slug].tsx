@@ -7,7 +7,7 @@ import Lists from "@/components/page/category/List"
 import { CATEGORYS } from "@/constant/category"
 import { getAllPosts } from "@/libs/posts"
 import { Post } from "@/types/post.type"
-import MainLayout from "@/ui/MainLayout"
+import CategoryLayout from "@/ui/CategoryLayout"
 import dayjs from "dayjs"
 
 const CategoryPage = ({ posts }: CategoryPageState) => {
@@ -15,7 +15,7 @@ const CategoryPage = ({ posts }: CategoryPageState) => {
     query: { slug },
   } = useRouter()
   return (
-    <MainLayout>
+    <CategoryLayout>
       <main>
         <Title>
           {slug === "blog" && "Blog"}
@@ -41,7 +41,7 @@ const CategoryPage = ({ posts }: CategoryPageState) => {
           </div>
         ))}
       </main>
-    </MainLayout>
+    </CategoryLayout>
   )
 }
 
