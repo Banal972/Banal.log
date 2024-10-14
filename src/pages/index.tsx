@@ -48,10 +48,12 @@ const IndexPage = () => {
           </animated.p>
           <ul>
             {trails.map((style, i) => (
-              <animated.li style={style} key={i} className="mt-3 first:mt-0">
+              <animated.li style={style} key={i} className="group mt-3 first:mt-0">
                 <Link href={MAINCATEGORYS[i].href} className="flex items-center gap-3">
                   <span className="text-nowrap font-medium">{MAINCATEGORYS[i].category}</span>
-                  <p className="text-sm">{MAINCATEGORYS[i].label}</p>
+                  <p className="text-sm transition-colors group-hover:text-green-400">
+                    {MAINCATEGORYS[i].label}
+                  </p>
                 </Link>
               </animated.li>
             ))}

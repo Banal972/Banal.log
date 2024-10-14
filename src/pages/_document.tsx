@@ -14,7 +14,7 @@ const Document = () => {
         />
         <meta property="og:image" content="/asset/og_img.jpg" />
       </Head>
-      <body className="bg-slate-50">
+      <body className="bg-slate-50 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar]:w-1">
         <Main />
         <NextScript />
       </body>

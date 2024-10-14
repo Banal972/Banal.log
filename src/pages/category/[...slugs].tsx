@@ -1,6 +1,8 @@
 import { GetStaticProps } from "next"
 import { useRouter } from "next/router"
 
+import React, { useEffect, useState } from "react"
+
 import PrevBtn from "@/components/common/PrevBtn"
 import { Title } from "@/components/common/Title"
 import Lists from "@/components/page/category/List"
@@ -15,22 +17,26 @@ const CategoryPage = ({ posts }: CategoryPageState) => {
     query: { slugs },
   } = useRouter()
 
+  const [title, setTitle] = useState("")
+
+  useEffect(() => {
+    if (!slugs) return
+    setTitle(slugs[0])
+  }, [slugs])
+
   return (
     <CategoryLayout>
       <main>
         <Title>
-          {slugs && slugs[0] === "blog" && "Blog"}
-          {slugs && slugs[0] === "discover" && "TIL"}
-          {slugs && slugs[0] === "question" && "코딩 테스트"}
+          {title === "blog" && "Blog"}
+          {title === "discover" && "TIL"}
+          {title === "question" && "코딩 테스트"}
         </Title>
-        <p className="mt-2 text-sm">
-          {slugs && slugs[0] === "blog" && "지나온 일들을 회고한 기록들 입니다."}
-          {slugs &&
-            slugs[0] === "discover" &&
+        <p className="mt-2 break-keep text-sm">
+          {title === "blog" && "지나온 일들을 회고한 기록들 입니다."}
+          {title === "discover" &&
             "프로젝트를 진행하면서 새로운 지식을 얻은것을 정리하는 곳 입니다."}
-          {slugs &&
-            slugs[0] === "question" &&
-            "코딩 테스트 문제를 풀이하는 시간을 갖는 공간 입니다."}
+          {title === "question" && "코딩 테스트 문제를 풀이하는 시간을 갖는 공간 입니다."}
         </p>
         <div className="mt-5 flex flex-wrap gap-3 text-xs">
           <PrevBtn link="/">되돌아가기</PrevBtn>
@@ -38,6 +44,9 @@ const CategoryPage = ({ posts }: CategoryPageState) => {
           <PrevBtn link="/category/discover">TIL</PrevBtn>
           <PrevBtn link="/category/question">코딩 테스트</PrevBtn>
         </div>
+
+        {posts.length < 1 && <div className="mt-5 flex gap-5 border-t py-5"></div>}
+
         {posts.map((post) => (
           <div key={post[0]} className="mt-5 flex gap-5 border-t py-5">
             <p>{post[0]}</p>
