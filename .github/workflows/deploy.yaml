@@ -1,4 +1,4 @@
-name: Deploy Next.js to GitHub Pages
+name: GitHub Pages Deploy
 
 on:
   push:
@@ -8,34 +8,30 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x]
-
     steps:
-      - name: Checkout repository
+      - name: Checkout 🛎️
         uses: actions/checkout@v4
 
-      - name: Clear npm cache
-        run: npm cache clean --force
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: "20"
+          cache: "pnpm"
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+      - name: Install and Build 🔧
+        run: |
+          pnpm install
+          pnpm run build && touch ./out/.nojekyll
 
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Build Next.js project
-        run: pnpm build && pnpm export
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
+          repository-name: Banal972/Banal972.github.io
+          branch: gh-pages
+          folder: out
+          token: ${{ secrets.DEPLOY_TOKEN }}

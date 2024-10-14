@@ -23,6 +23,8 @@ export const parsePost = (postPath: string) => {
     const grayMatter = data as PostMatter
     // 가져온 데이터에 타입 추가
 
+    const category = postPath.replace(`${POSTS_PATH}/`, "").split("/")[0]
+
     return {
       ...grayMatter,
       date: dayjs(grayMatter.date).format("YYYY-MM-DD"),
@@ -30,9 +32,11 @@ export const parsePost = (postPath: string) => {
       slug: postPath
         .replace(BASE_PATH, "/post")
         .slice(postPath.indexOf(BASE_PATH))
+        .replace(`${category}/`, "")
         .replace(".mdx", ""),
       readingMinutes: Math.ceil(readingTime(content).minutes),
       wordCount: content.split(/\s+/gu).length, // 총 글자수
+      category,
     }
   } catch (e) {
     console.error(e)

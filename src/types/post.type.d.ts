@@ -12,4 +12,5 @@ export type Post = PostMatter & {
   content: string
   readingMinutes: number
   wordCount: number
+  category: string
 }

@@ -17,13 +17,18 @@ const Lists = ({ data }: ListsState) => {
         <animated.li
           style={style}
           key={index}
-          className="mt-3 flex flex-wrap items-center justify-between gap-2 first:mt-0"
+          className="mt-5 transition-colors first:mt-0 hover:text-green-400"
         >
-          <Link href={data[index].slug}>{data[index].title}</Link>
-          <p className="flex items-center gap-1 text-sm text-gray-500">
-            <IoCalendarClearOutline />
-            {data[index].date}
-          </p>
+          <Link
+            className="flex flex-col flex-wrap justify-between gap-2 md:flex-row md:items-center"
+            href={data[index].slug}
+          >
+            <p className="break-keep">{data[index].title}</p>
+            <p className="flex items-center gap-1 text-sm text-gray-500">
+              <IoCalendarClearOutline />
+              {data[index].date}
+            </p>
+          </Link>
         </animated.li>
       ))}
     </ul>
