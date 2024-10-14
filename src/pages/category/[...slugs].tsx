@@ -12,21 +12,25 @@ import dayjs from "dayjs"
 
 const CategoryPage = ({ posts }: CategoryPageState) => {
   const {
-    query: { slug },
+    query: { slugs },
   } = useRouter()
+
   return (
     <CategoryLayout>
       <main>
         <Title>
-          {slug === "blog" && "Blog"}
-          {slug === "discover" && "TIL"}
-          {slug === "question" && "코딩 테스트"}
+          {slugs && slugs[0] === "blog" && "Blog"}
+          {slugs && slugs[0] === "discover" && "TIL"}
+          {slugs && slugs[0] === "question" && "코딩 테스트"}
         </Title>
         <p className="mt-2 text-sm">
-          {slug === "blog" && "지나온 일들을 회고한 기록들 입니다"}
-          {slug === "discover" &&
+          {slugs && slugs[0] === "blog" && "지나온 일들을 회고한 기록들 입니다."}
+          {slugs &&
+            slugs[0] === "discover" &&
             "프로젝트를 진행하면서 새로운 지식을 얻은것을 정리하는 곳 입니다."}
-          {slug === "question" && "코딩 테스트 문제를 풀이하는 시간을 갖는 공간 입니다."}.
+          {slugs &&
+            slugs[0] === "question" &&
+            "코딩 테스트 문제를 풀이하는 시간을 갖는 공간 입니다."}
         </p>
         <div className="mt-5 flex flex-wrap gap-3 text-xs">
           <PrevBtn link="/">되돌아가기</PrevBtn>
@@ -48,19 +52,24 @@ const CategoryPage = ({ posts }: CategoryPageState) => {
 export default CategoryPage
 
 export const getStaticPaths = () => {
-  const categoryPath = Object.keys(CATEGORYS).reduce(
-    (prev: string[], key) => [...prev, `/category/${key}`],
-    [],
-  )
+  const paths = Object.keys(CATEGORYS).reduce((prev: string[], key) => {
+    const categoryPath = `/category/${key}`
+    const subcategoryPath = CATEGORYS[key].subItems.map(
+      (subitem) => `${categoryPath}/${subitem.link}`,
+    )
+    return [...prev, categoryPath, ...subcategoryPath]
+  }, [])
 
   return {
-    paths: categoryPath,
+    paths: paths,
     fallback: false,
   }
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { slug } = params as { slug: string }
+  const { slugs } = params as { slugs: string[] }
+
+  const [mainCategory, subCategory] = slugs
 
   /* 
   // 명령형
@@ -88,7 +97,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   // 함수형
   const posts = getAllPosts()
-    .filter((post) => post.tags.includes(CATEGORYS[slug].title))
+    .filter((post) => post.category === mainCategory)
+    .filter((post) => !subCategory || post.tags.includes(subCategory))
     .reduce<{ [year: number]: Post[] }>((ac, cur) => {
       const year = dayjs(cur.date).year()
       return {

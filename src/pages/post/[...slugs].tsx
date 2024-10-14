@@ -7,6 +7,7 @@ import { notFound, useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import { IoCalendarClearOutline, IoTimeOutline } from "react-icons/io5"
 
+import { CATEGORYS } from "@/constant/category"
 import { getAllPosts } from "@/libs/posts"
 import { Post } from "@/types/post.type"
 import MainLayout from "@/ui/MainLayout"
@@ -22,15 +23,15 @@ const PostPage = ({ post, mdx }: PostPageState) => {
   const router = useRouter()
 
   const prevHandler = () => {
-    if (post.tags.includes("TIL")) {
+    if (post.category === "discover") {
       return router.push("/category/discover")
     }
 
-    if (post.tags.includes("블로그")) {
+    if (post.category === "blog") {
       return router.push("/category/blog")
     }
 
-    if (post.tags.includes("코딩 테스트")) {
+    if (post.category === "question") {
       return router.push("/category/question")
     }
   }
@@ -45,11 +46,12 @@ const PostPage = ({ post, mdx }: PostPageState) => {
           <h1 className="break-keep text-xl font-bold md:text-2xl">{post.title}</h1>
 
           <div className="mt-5 flex justify-center gap-2 rounded px-4 py-1 text-sm font-medium uppercase text-blue-500">
-            {post.tags.map((tag) => (
-              <p className="border-l border-blue-500 pl-2 first:border-none first:pl-0" key={tag}>
-                {tag}
-              </p>
-            ))}
+            <p
+              className="border-l border-blue-500 pl-2 first:border-none first:pl-0"
+              key={post.category}
+            >
+              {CATEGORYS[post.category].title}
+            </p>
           </div>
 
           <div className="mt-5 flex justify-center gap-2 text-sm text-gray-500">
