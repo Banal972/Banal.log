@@ -27,6 +27,19 @@ const CategoryLayout = ({ children }: { children: ReactNode }) => {
       <div
         className={`absolute left-0 top-0 z-20 min-h-screen w-44 transition-transform ${isOpen ? "-translate-x-0" : "-translate-x-full"} border-r bg-white px-3 py-5 md:relative md:translate-x-0`}
       >
+        {Array(20)
+          .fill(0)
+          .map((_, index) => (
+            <div
+              key={index + 1}
+              style={{
+                top: `${index !== 19 ? `${(index / 19) * 100}%` : "auto"}`,
+                bottom: `${index === 19 ? 0 : "auto"}`,
+              }}
+              className={`absolute right-0 hidden h-1 w-6 translate-x-1/2 rounded bg-gray-300 md:block`}
+            ></div>
+          ))}
+
         <div className="flex justify-between">
           <Link
             href={`/category/${slugs && slugs[0]}`}
@@ -55,7 +68,7 @@ const CategoryLayout = ({ children }: { children: ReactNode }) => {
           ))}
         </ul>
       </div>
-      <div className="box-border flex-1 px-3 py-5 pb-20 md:px-5 md:py-5">
+      <div className="box-border flex-1 px-3 py-5 pb-20 md:px-8 md:py-5">
         <div className="block text-xl md:hidden">
           <button type="button" onClick={() => setIsOpen(true)}>
             <IoMenuSharp />
