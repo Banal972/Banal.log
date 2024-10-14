@@ -17,7 +17,7 @@ const Lists = ({ data }: ListsState) => {
         <animated.li
           style={style}
           key={index}
-          className="mt-5 transition-colors first:mt-0 hover:text-green-400"
+          className="mt-2 border-t pt-2 transition-colors first:mt-0 first:border-0 first:pt-0 hover:text-green-400"
         >
           <Link
             className="flex flex-col flex-wrap justify-between gap-2 md:flex-row md:items-center"
