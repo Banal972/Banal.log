@@ -25,7 +25,7 @@ const CategoryLayout = ({ children }: { children: ReactNode }) => {
   return (
     <div className="relative flex">
       <div
-        className={`absolute left-0 top-0 z-20 h-screen w-44 border-r bg-white px-3 py-5 transition-transform md:sticky md:translate-x-0 ${isOpen ? "-translate-x-0" : "-translate-x-full"}`}
+        className={`fixed left-0 top-0 z-20 h-screen w-44 border-r bg-white px-3 py-5 transition-transform md:sticky md:h-screen md:translate-x-0 ${isOpen ? "-translate-x-0" : "-translate-x-full"}`}
       >
         {Array(20)
           .fill(0)
