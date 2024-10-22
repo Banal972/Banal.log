@@ -3,6 +3,7 @@ import localFont from "next/font/local"
 import Head from "next/head"
 
 import ProjectModalProvider from "@/provider/ProjectModalProvider"
+import { GoogleAnalytics } from "@next/third-parties/google"
 import dayjs from "dayjs"
 import "dayjs/locale/ko"
 import "swiper/css"
@@ -46,6 +47,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       <div className={`${Ownglyph_okticon.className}`}>
         <ProjectModalProvider>
           <Component {...pageProps} />
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ""} />
         </ProjectModalProvider>
       </div>
     </>

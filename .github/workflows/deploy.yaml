@@ -24,6 +24,8 @@ jobs:
           cache: "pnpm"
 
       - name: Install and Build 🔧
+        env:
+          GA_ID: ${{ secrets.GA_ID }}
         run: |
           pnpm install
           pnpm run build && touch ./out/.nojekyll
