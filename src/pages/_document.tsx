@@ -13,6 +13,7 @@ const Document = () => {
           content="심플하게 만들어 노트처럼 작성한 프론트엔드 개발자의 회고록 Banal.log"
         />
         <meta property="og:image" content="/asset/og_img.jpg" />
+        <meta name="google-adsense-account" content="ca-pub-2915330933826179" />
       </Head>
       <body className="bg-slate-50 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar]:w-1">
         <Main />
