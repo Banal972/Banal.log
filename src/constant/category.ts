@@ -36,10 +36,11 @@ export const CATEGORYS: {
   discover: {
     title: "TIL",
     subItems: [
-      { title: "함수형 프로그래밍", link: "functional-programming" },
       { title: "React", link: "react" },
       { title: "NextJS", link: "nextjs" },
       { title: "React Native", link: "native" },
+      { title: "다자인 패턴", link: "design-pattren" },
+      { title: "함수형 프로그래밍", link: "functional-programming" },
       { title: "ETC", link: "etc" },
     ],
   },

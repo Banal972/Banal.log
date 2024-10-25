@@ -23,7 +23,10 @@ const Lists = ({ data }: ListsState) => {
             className="flex flex-col flex-wrap justify-between gap-2 md:flex-row md:items-center"
             href={data[index].slug}
           >
-            <p className="break-keep">{data[index].title}</p>
+            <div>
+              <p className="break-keep">{data[index].title}</p>
+              <p className="break-keep text-xs text-gray-500">{data[index].desc}</p>
+            </div>
             <p className="flex items-center gap-1 text-sm text-gray-500">
               <IoCalendarClearOutline />
               {data[index].date}
