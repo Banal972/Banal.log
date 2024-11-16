@@ -9,7 +9,11 @@ const config: Config = {
     "./src/ui/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        poppins: ["var(--font-poppins)"],
+      },
+    },
   },
   plugins: [require("@tailwindcss/typography")],
 }

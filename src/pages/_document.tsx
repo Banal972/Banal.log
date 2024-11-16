@@ -15,7 +15,7 @@ const Document = () => {
         <meta property="og:image" content="/asset/og_img.jpg" />
         <meta name="google-adsense-account" content="ca-pub-2915330933826179" />
       </Head>
-      <body className="bg-slate-50 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar]:w-1">
+      <body className="relative bg-[#19586f]">
         <Main />
         <NextScript />
       </body>
@@ -23,5 +23,3 @@ const Document = () => {
   )
 }
 export default Document
-
-// mx-auto max-w-2xl px-3 md:px-5

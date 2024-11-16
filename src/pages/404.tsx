@@ -1,6 +1,10 @@
 import { useRouter } from "next/navigation"
 
-const Custom404 = () => {
+import { ReactElement } from "react"
+
+import type { NextPageWithLayout } from "./_app"
+
+const Custom404: NextPageWithLayout = () => {
   const router = useRouter()
   return (
     <div className="flex h-screen flex-col items-center justify-center">
@@ -16,6 +20,10 @@ const Custom404 = () => {
       </div>
     </div>
   )
+}
+
+Custom404.getLayout = function getLayout(page: ReactElement) {
+  return <>{page}</>
 }
 
 export default Custom404
