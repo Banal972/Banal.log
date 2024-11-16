@@ -1,13 +1,38 @@
-import Link from "next/link"
+const IndexPage = () => {
+  return (
+    <main>
+      <div className="text-center text-white">
+        <h1 className="font-poppins pt-72 text-[82px] uppercase leading-snug -tracking-wider">
+          welcome to Banal.log
+          <p className="text-[62px]">Look around my world</p>
+        </h1>
+        <p className="mt-10 text-lg font-medium">
+          저는 항상 사용자 중심 경험을 만드는데 열정을 불태웁니다
+        </p>
+      </div>
+
+      <div className="mx-auto mt-32 grid w-full max-w-[1480px] grid-cols-2 gap-5">
+        <div className="h-24 rounded-2xl bg-white"></div>
+        <div className="h-24 rounded-2xl bg-white"></div>
+        <div className="col-span-2 h-24 rounded-2xl bg-white"></div>
+      </div>
+    </main>
+  )
+}
+
+export default IndexPage
+
+{
+  /* import Link from "next/link"
 
 import { IoLogoGithub, IoMail } from "react-icons/io5"
 
 import { MAINCATEGORYS } from "@/constant/category"
 import useFadeIn from "@/hooks/animation/useFadeIn"
 import MainLayout from "@/ui/MainLayout"
-import { animated, useChain, useSpringRef, useTrail } from "@react-spring/web"
 
-const IndexPage = () => {
+import { animated, useChain, useSpringRef, useTrail } from "@react-spring/web" */
+  /* 
   const { ref: fadeRef, props: fadeProps1 } = useFadeIn()
   const { ref: fadeRef2, props: fadeProps2 } = useFadeIn("left")
   const { ref: fadeRef3, props: fadeProps3 } = useFadeIn("left")
@@ -19,10 +44,9 @@ const IndexPage = () => {
     to: { opacity: 1, y: 0 },
   })
 
-  useChain([fadeRef, fadeRef2, fadeRef3, trailsRef], [0, 0.2, 0.2, 0.3])
-
-  return (
-    <MainLayout>
+  useChain([fadeRef, fadeRef2, fadeRef3, trailsRef], [0, 0.2, 0.2, 0.3]) 
+  */
+  /* <MainLayout>
       <main>
         <div className="flex items-center justify-between">
           <h1 className="text-lg font-bold">Banal.log</h1>
@@ -60,8 +84,5 @@ const IndexPage = () => {
           </ul>
         </div>
       </main>
-    </MainLayout>
-  )
+    </MainLayout> */
 }
-
-export default IndexPage

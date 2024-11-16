@@ -1,6 +1,6 @@
 import { ReactNode } from "react"
 
-import Footer from "@/ui/Footer"
+import Footer from "@/components/ui/Footer"
 
 const MainLayout = ({ children }: { children: ReactNode }) => {
   return (

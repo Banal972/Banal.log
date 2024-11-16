@@ -4,8 +4,8 @@ import { useRouter } from "next/router"
 import { ReactNode, useEffect, useState } from "react"
 import { IoCloseSharp, IoMenuSharp } from "react-icons/io5"
 
+import Footer from "@/components/ui/Footer"
 import { CATEGORYS, ISUBITEMS } from "@/constant/category"
-import Footer from "@/ui/Footer"
 
 const CategoryLayout = ({ children }: { children: ReactNode }) => {
   const {
